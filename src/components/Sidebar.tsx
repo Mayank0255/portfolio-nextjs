@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { usePortfolio } from "@/context/PortfolioContext";
 import { EditableText } from "./EditableText";
+import { SidebarSkeleton } from "./SkeletonLoading";
 
 interface NavItem {
   name: string;
@@ -62,7 +63,7 @@ const navItems: NavItem[] = [
 ];
 
 export function Sidebar() {
-  const { data } = usePortfolio();
+  const { data, isLoading } = usePortfolio();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -117,27 +118,33 @@ export function Sidebar() {
       >
         {/* Profile Section */}
         <div className="flex flex-col items-center p-6 border-b border-[var(--sidebar-border)]">
-          <div className="relative w-28 h-28 mb-4">
-            <Image
-              src={data.profile.avatar}
-              alt={data.profile.name}
-              fill
-              className="rounded-full object-cover border-4 border-[var(--sidebar-border)]"
-              priority
-            />
-          </div>
-          <EditableText
-            path="profile.name"
-            value={data.profile.name}
-            as="h1"
-            className="text-xl font-bold text-center sidebar-fg"
-          />
-          <EditableText
-            path="profile.title"
-            value={data.profile.title}
-            as="p"
-            className="text-sm opacity-80 text-center mt-1 sidebar-fg"
-          />
+          {isLoading ? (
+            <SidebarSkeleton />
+          ) : (
+            <>
+              <div className="relative w-28 h-28 mb-4">
+                <Image
+                  src={data.profile.avatar}
+                  alt={data.profile.name}
+                  fill
+                  className="rounded-full object-cover border-4 border-[var(--sidebar-border)]"
+                  priority
+                />
+              </div>
+              <EditableText
+                path="profile.name"
+                value={data.profile.name}
+                as="h1"
+                className="text-xl font-bold text-center sidebar-fg"
+              />
+              <EditableText
+                path="profile.title"
+                value={data.profile.title}
+                as="p"
+                className="text-sm opacity-80 text-center mt-1 sidebar-fg"
+              />
+            </>
+          )}
         </div>
 
         {/* Navigation */}

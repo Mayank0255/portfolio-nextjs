@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { markdownToHtml, markdownProseClass } from "@/lib/markdown";
+import { PageSkeleton } from "@/components/SkeletonLoading";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -34,6 +35,7 @@ interface NewPostForm {
   tags: string;
   date: string;
   pin: boolean;
+  coverImage: string;
 }
 
 const initialFormState: NewPostForm = {
@@ -44,20 +46,15 @@ const initialFormState: NewPostForm = {
   tags: "",
   date: getTodayDate(),
   pin: false,
+  coverImage: "",
 };
 
 export default function Home() {
-  const { data, isEditMode, updateField } = usePortfolio();
+  const { data, isEditMode, isLoading, updateField } = usePortfolio();
   const router = useRouter();
-  const [showHint, setShowHint] = useState(true);
   const [page, setPage] = useState(1);
   const [showAddPostModal, setShowAddPostModal] = useState(false);
   const [newPost, setNewPost] = useState<NewPostForm>(initialFormState);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowHint(false), 10000);
-    return () => clearTimeout(timer);
-  }, []);
 
   const posts = data.posts || [];
   const pinned = posts.filter((p) => p.pin);
@@ -88,6 +85,7 @@ export default function Home() {
         .map((t) => t.trim())
         .filter(Boolean),
       pin: newPost.pin,
+      ...(newPost.coverImage.trim() && { image: { src: newPost.coverImage.trim(), alt: newPost.title.trim() } }),
     };
 
     updateField("posts", [newPostData, ...posts]);
@@ -115,6 +113,10 @@ export default function Home() {
       updateField("posts", newPosts);
     }
   };
+
+  if (isLoading) {
+    return <PageSkeleton />;
+  }
 
   return (
     <>
@@ -168,6 +170,15 @@ export default function Home() {
                   </div>
                 )}
                 <article>
+                  {post.image?.src && (
+                    <div className="mb-4 -mx-5 -mt-5 rounded-t-xl overflow-hidden">
+                      <img
+                        src={post.image.src}
+                        alt={post.image.alt || post.title}
+                        className="w-full h-48 object-cover"
+                      />
+                    </div>
+                  )}
                   <div className="flex items-start gap-2">
                     <h3 className="text-xl font-semibold mb-2 text-[var(--link-color)] flex-1">
                       {post.title}
@@ -306,6 +317,29 @@ export default function Home() {
                   rows={8}
                   className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] rounded-lg px-4 py-2 text-[var(--foreground)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--link-color)] resize-none font-mono text-sm"
                 />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-[var(--foreground)] mb-1">
+                  Cover Image URL
+                </label>
+                <input
+                  type="url"
+                  value={newPost.coverImage}
+                  onChange={(e) => setNewPost((prev) => ({ ...prev, coverImage: e.target.value }))}
+                  placeholder="https://example.com/image.jpg"
+                  className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] rounded-lg px-4 py-2 text-[var(--foreground)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--link-color)]"
+                />
+                {newPost.coverImage && (
+                  <div className="mt-2 rounded-lg overflow-hidden border border-[var(--card-border)]">
+                    <img
+                      src={newPost.coverImage}
+                      alt="Cover preview"
+                      className="w-full h-32 object-cover"
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                    />
+                  </div>
+                )}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
