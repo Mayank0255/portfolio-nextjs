@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/ingest-posts.mjs && next build",
+    "prebuild": "node scripts/ingest-posts.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "ingest-posts": "node scripts/ingest-posts.mjs"
   },
   "dependencies": {
+    "mongoose": "^9.1.5",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"

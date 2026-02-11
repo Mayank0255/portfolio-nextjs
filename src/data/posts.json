@@ -1,0 +1,567 @@
+[
+  {
+    "id": "10-best-subreddits-to-help-you-grow-as-a-developer",
+    "slug": "10-best-subreddits-to-help-you-grow-as-a-developer",
+    "title": "10 Best Subreddits To Help You Grow As A Developer",
+    "description": "Reddit communities to learn programming",
+    "content": "> This article was originally posted on [Medium](https://levelup.gitconnected.com/10-best-sub-reddits-to-help-to-grow-as-a-developer-984b0b684683). If you prefer reading it from there, please do check it out.\n\nBeing part of these communities helps a lot, you get to,\n\n* know about recent technologies & tools\n* showcase your work\n* ask your doubts\n\nList of subreddits\n\n1. [r/javascript](https://www.reddit.com/r/javascript/) - 2.4M+ members\n2. [r/webdev](https://www.reddit.com/r/webdev/) - 1.8M+ members\n3. [r/MachineLearning](https://www.reddit.com/r/MachineLearning/) - 2.8M+ members\n4. [r/Python](https://www.reddit.com/r/Python/) - 1.2M+ members\n5. [r/datascience](https://www.reddit.com/r/datascience/) - 1.1M+ members\n6. [r/reactjs](https://www.reddit.com/r/reactjs/) - 366K+ members\n7. [r/Frontend](https://www.reddit.com/r/Frontend/) - 232K+ members\n8. [r/opensource](https://www.reddit.com/r/opensource/) - 202K+ members\n9. [r/css](https://www.reddit.com/r/css/) - 115K+ members\n10. [r/hacktoberfest](https://www.reddit.com/r/hacktoberfest/) - 1.6K+ members",
+    "date": "2023-11-07",
+    "categories": [
+      "📝 Publications & Articles",
+      "Articles"
+    ],
+    "tags": [
+      "Reddit, Development, Coding, Software Development, JavaScript"
+    ],
+    "pin": false
+  },
+  {
+    "id": "software-development-engineer-2-zomato",
+    "slug": "software-development-engineer-2-zomato",
+    "title": "Software Development Engineer 2 at Zomato",
+    "description": "Ads Team | Full-Time",
+    "content": "Ad-Tech and Search\n\n* I am dedicated to the Ads team. My focus lies in crafting tech-driven solutions that fuel restaurant’s growth.\n* I currently own the Ads Serving Service, which runs on 350k RPM at peak and is load tested at 1.5M RPM.\n* I have worked on optimisations to reduce gRPC latency and have worked on the system resiliency from transactional to feedback systems built on Apache Flink through and through.\n* For Ads business I have worked on multiple target pacing and Ads ranking logic to increase Ads revenue and platform relevancy",
+    "date": "2023-07-03",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Experience"
+    ],
+    "tags": [
+      "Go, Apache Flink, Redis, MongoDB, Apache Kafka, Amazon Web Services (AWS), Amazon Dynamodb, MySQL, SQL",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API"
+    ],
+    "pin": true,
+    "workTime": "Full-Time"
+  },
+  {
+    "id": "9-best-developer-communities-on-discord",
+    "slug": "9-best-developer-communities-on-discord",
+    "title": "9 Best Developer Communities On Discord",
+    "description": "Discord servers to learn programming.",
+    "content": "> This article was originally posted on [Medium](https://medium.com/gitconnected/9-best-developer-communities-on-discord-c673b8ab3a1c). If you prefer reading it from there, please do check it out.\n\n---\n\nBenefits of being part of a developer community are a lot, you get to,\n\n* interact with likeminded people\n* know about recent technologies & tools\n* showcase your work\n* ask your doubts\n\n# 1️⃣ &nbsp;ZeroToMastery\n\n👑 Admin: [Andrei Neagoie](https://medium.com/u/942670ffec21)\n\n🏢 Members: 259,859+\n\n📝 This was the first dev discord community that I joined. They even have there own online courses about most of the technologies.\nZTM Community Discord. Learn Together, Grow Together. | Zero To Mastery\n\n[Join ZeroToMastery Discord Server!](https://zerotomastery.io/community/developer-community-discord)\n\n# 2️⃣ &nbsp;The Programmer's Hangout\n\n👑 Admin: [@itsHobbes](https://t.co/QGcBG1hW31)\n\n🏢 Members: 108,263+\n\n📝 This server is about everything related to coding, and is a good place to interact with other developers.\n\n[Join The Programmer's Hangout Discord Server!](https://discord.com/invite/programming)\n\n# 3️⃣ &nbsp;Reactiflux\n\n👑 Admin: [@reactiflux](https://twitter.com/reactiflux)\n\n🏢 Members: 172,474+\n\n📝 This server is specifically for React and technologies related to it like TypeScript, Gatsby, nextjs, etc.\n\n[Join the Reactiflux Discord Server!](https://discord.com/invite/reactiflux)\n\n# 4️⃣ &nbsp;EddieHub\n\n👑 Admin: [Eddie Jaoude](https://medium.com/u/2bb22ee3edfa)\n\n🏢 Members: 4,975+\n\n📝 I joined this server to get into the Open Source Community and learn everything related to it\n\n[Join the EddieHub Discord Server!](https://discord.com/invite/jZQs6Wu)\n\n# 5️⃣ &nbsp;Community Classroom\n\n👑 Admin: [@kunalk](https://bio.link/kunalk)\n\n🏢 Members: 34,131+\n\n📝 I joined this server as the admin of this server teaches everything related to programming for free.\n\n[Join the Community Classroom Discord Server!](https://discord.com/invite/commclassroom)\n\n# 6️⃣ &nbsp;TeamTanay Community\n\n👑 Admin: [Tanay Pratap](https://medium.com/u/b200e44f8e64)\n\n🏢 Members: 19,948+\n\n📝 This server is not just about programming, the admin of this talks about business, Metaverse and NFTs too.\n\n[Join the #TeamTanay Community Discord Server!](https://discord.com/invite/4RCncKrDUX)\n\n# 7️⃣ &nbsp;The Coding Den\n\n👑 Admin: [greenbigfrog](https://medium.com/u/a69497e3c388)\n\n🏢 Members: 93,632+\n\n📝 This server is about JavaScript, Python, Machine Learning, UI/UX, etc.\n\n[Join the The Coding Den Discord Server!](https://discord.com/invite/code)\n\n# 8️⃣ &nbsp;DevCord\n\n👑 Admin: [lost.design](https://medium.com/u/dd42f30f3f1c)\n\n🏢 Members: 33,432+\n\n📝 This server is mostly about JavaScript and Python. This one is also pretty useful if you are looking for collaborators.\n\n[Join the devcord Discord Server!](https://discord.com/invite/devcord)\n\n# 9️⃣ &nbsp;Coding & Programming Community\n\n👑 Admin: [Matthew Upham](https://medium.com/u/b6e1770bb925)\n\n🏢 Members: 32,512+\n\n📝 This server literally covers everything related to programming, like Web, Games, App, Cybersecurity, ML, etc.\n\n[Join the Coding & Programming Community - mattupham Discord Server!](https://discord.com/invite/jSYRaWzauJ)\n\n---\n\n## .",
+    "date": "2022-09-19",
+    "categories": [
+      "📝 Publications & Articles",
+      "Articles"
+    ],
+    "tags": [
+      "Programming, JavaScript, Python, React, Tech"
+    ],
+    "pin": false
+  },
+  {
+    "id": "software-developer-zomato",
+    "slug": "software-developer-zomato",
+    "title": "Software Development Engineer at Zomato",
+    "description": "Ads Team | Full-Time",
+    "content": "* Worked at Zomato in the Ad-Tech Team, in a tech team of about 20-30 people.\n* I started working on the complete Ads Creation and Billing system where I worked on building better platforms to increase booked revenue.\n* Worked on React.js, PHP and Golang to migrate the Ads Creation System from monolith written in PHP to Golang Microservice and Ads platform written in React.js\n* Then I started transitioning to Ads Targeting System from Creation pod.",
+    "date": "2022-07-03",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Experience"
+    ],
+    "tags": [
+      "Go, Redis, MongoDB, Apache Kafka, Amazon Web Services (AWS), MySQL, Web Development, JSON",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API",
+      "Redux, New Relic APM, Kibana, Front-end Development, Python, JavaScript, Grafana"
+    ],
+    "pin": false,
+    "workTime": "Full-Time"
+  },
+  {
+    "id": "graduated-from-manipal-university-jaipur",
+    "slug": "graduated-from-manipal-university-jaipur",
+    "title": "Bachelor of Technology from Manipal University Jaipur",
+    "description": "BTech, Information Technology",
+    "content": "**University:** Manipal University Jaipur  \n**Graduation Period:** 2018 - 2022  \n**CGPA:** 8.43\n\n## Core Coursework\n\n- **Programming Languages:** Programming in C, Object Oriented Programming in Java\n- **Systems and Architecture:** Computer Organization and Architecture, Operating Systems, Microprocessors and Microcontrollers\n- **Data Management and Algorithms:** Data Structures in C, Design & Analysis of Algorithm, Relational Database Management Systems\n- **Advanced tags:** Data Mining and Warehousing, Data Science, Computer Networks\n- **Software Development:** Software Engineering and Project Management, Organization and Management\n\nThis academic journey not only enhanced my technical skills but also provided a robust understanding of managing and engineering software projects, positioning me to effectively contribute to technology-driven environments.",
+    "date": "2022-06-01",
+    "categories": [
+      "🎓 Education",
+      "Courses"
+    ],
+    "tags": [
+      "Data Mining, Java, RDBMS, SQL, Data Science, Operating Systems, Design & Analysis of Algorithm"
+    ],
+    "pin": false
+  },
+  {
+    "id": "how-i-got-an-internship-at-zomato-through-linkedIn",
+    "slug": "how-i-got-an-internship-at-zomato-through-linkedIn",
+    "title": "How I Got An Internship At Zomato Through LinkedIn",
+    "description": "Everything From Hiring Process To FAQs.",
+    "content": "> This article was originally posted on [Medium](https://medium.com/gitconnected/how-i-got-an-internship-at-zomato-through-linkedin-be486cf23628). If you prefer reading it from there, please do check it out.\n\nI got this amazing opportunity to intern at Zomato for the role of Software Engineering. It's a 6-month internship starting from January 2022 till July 2022. Getting an internship at a company like Zomato is a pretty big thing for me, and that too getting it off-campus, with the help of LinkedIn.\n\nThis blog is regarding the things I want the other aspirants to know about, which covers everything from the importance of LinkedIn in getting an internship anywhere off-campus to a detailed hiring process I went through to get it.\n\n## Why I Am Writing This Blog?\n\nI have been reached out by many people on LinkedIn since the time I have posted about getting an internship at Zomato, and it's tough to reply to every message and answer similar kinds of questions, that is why to give most of the aspirants a detailed reply I am writing this blog.\n\nAnother reason to write this blog is to help clear the misconception that there are some fixed methods to get an internship or a job, like\n\n* On-Campus Placement Drive\n* Company Career Pages\n* Job Portals (like Indeed, Internshala, etc.)\n\nThe most underestimated job-seeking method is through messaging or cold messaging on LinkedIn, that is how I got the internship. I agree that the probability of getting an internship or a job is lesser compared to other methods but, it allows you to get an opportunity that wouldn't have been possible otherwise like Zomato was for me.\n\n---\n\n## My Hiring Process\n\n### Reached out to HRs and Recruiters of Zomato 💻\n\nI started with updating my LinkedIn profile with everything I had done till then, so that when I reach out to people and they take a look at my profile they find something relevant for their use.\n\nNext, I started growing my LinkedIn network towards the companies I was targeting, and Zomato was one of them. I started sending out connection requests to all the HRs and recruiters of Zomato, I even sent out requests to managers of Zomato as there could've been a possibility that a company manager takes a direct interest in my profile.\n\n### Got connected 💪\n\nAfter getting connected with a couple of Recruiters, I began sending messages to them, a unique message for each one of them. The key was not just to message them, it was to attract their attention in a minimum span of time.\n\nFor that, I used to make sure of a couple of things like I am pretty active on LinkedIn, and due to which I came across a LinkedIn post shown below 👇\n\n<img src=\"assets/img/posts/articles/zomato-internship/got-connected.webp\" width=\"50%\">\n\nHere as you can see, the company is looking for Full-time Android Engineer, which means that hiring for the tech team might be active right now. So, this was my cue to start sending out the messages, as if they are looking for full-time employees, then there is no harm in asking for an internship. One thing I kept in mind before texting them is that I used to see that, is the recruiter or the HR online now? As it's evident that I won't be the only one reaching out to HR, that's why, if someone is active on LinkedIn and a new message comes in then, it would be on the top of the list, at that time it wouldn't make a difference that how many people have messaged the Recruiter till then.\n\nI think I might have reached out to at least 9–10 Zomato employees for this, and the one which worked out for me was pretty basic, but the important thing that helped me grab their attention was to attach my web portfolio at the bottom of the message.\n\nWhy that's important is because I have designed and built my portfolio on my own and treated it as a project itself, as according to me that's the quickest way to demonstrate your work or at least give an idea of your skills.\n\nCheck out my portfolio for reference 👇\nMayank Aggarwal Portfolio\nI am a final-year student pursuing BTech in IT. My domains of interest are FullStack Development, Machine Learning…mayank0255.github.io\n\n### I Got A Reply 🎉\n\n<img src=\"assets/img/posts/articles/zomato-internship/got-reply.webp\" width=\"50%\">\n\nThis is the reply I got from them, and I replied as soon as I could, so that I can get a follow-up reply instantly. Observe here, that the recruiter said,\n\n> *Hi Mayank, as there is some time till your graduation, I'd suggest we discuss internship.*\n\nSo, in my previous message, **I didn't mention that when I am graduating**, still the recruiter mentioned it, which means that the recruiter at least **checked out my LinkedIn profile or my Portfolio** from where they got this information. So, I was able to grab the recruiter's attention, and then I got a reply back which further concludes that they might've gotten impressed by it.\n\n### First Interview 🎓\n\nAfter having a small conversation on LinkedIn further to what I talked about in the previous step, I got a 30-mins Zoom call to invite link 🎊\n\nThe call was scheduled for the same day, and I was pretty nervous as I didn't have the time to prepare for it, and I didn't know that would it be a basic conversation or a Tech Interview.\n\nThen started the call, and it was just one person in front of me and it was **Gunjan Patidar, CTO of Zomato** itself on a one-to-one call with me 😲Though I think I was getting nervous unnecessarily as he asked me a simple question to tell everything about me to him from the skills I have, projects I have worked on, my previous internships, etc.\n\nAfter this, we just had a conversation about Zomato, the tech team, and he told me that after this there would be one HR interview which is basically like a formality. So, in short, I had the internship at this point 😁\n\n### HR Interview\n\nThis was a short conversation in which basic HR questions were asked, and then questions like the joining date, role, etc., were asked.\n\nAfter the call, **I got the internship offer letter** 🎉 🎊 on the next day itself.\n\nSo, this was my hiring process, there's no guarantee that this is the process for everyone as I approached the company differently, and that's why the cold messaging on LinkedIn was the key for me. I have heard Zomato hires a lot of candidates On-Campus as well, but unfortunately, it doesn't hire from my college.\n\nI recommend the aspirants to get active on LinkedIn, and become a part of it as opportunities through it are endless. Being active includes getting in touch with people not just to get an opportunity out of them but also to have a casual talk, to gain some of their experience and guidance.\n\nAnother thing is to keep your LinkedIn profile up-to-date, and it's not just about filling in the information, it's also about putting it in a certain way and it's also about putting the correct information, there shouldn't be any false information there.\n\nMy next blog will be on \"How To Take Full Advantage Of LinkedIn\", where I will be writing a complete guide for LinkedIn.\n\n<!-- <div class=\"mt-3 mb-3 mx-auto\"> -->\n  <img src=\"assets/img/posts/articles/zomato-internship/swags.webp\" width=\"60%\">\n  <figcaption class=\"text-center pt-2 pb-2\">Photo by Gangotree Das</figcaption>\n<!-- </div> -->\n\n---\n\n## FAQs\n\n#### *Questions I have been asked frequently on LinkedIn regarding my Zomato Internship*\n\nQuestion 1: It's written on their career page that Zomato hires only through referrals, is that true?\n:  It does hire through referrals, but that's not the only method, as they have mentioned one more thing on the career page that they will find you if you have what it takes, that means you will need to standout from other candidates.\n\nQuestion 2: Can you give me the name of the contact?\n:  Sorry, I can't do that, and its not about a particular person to the opportunity, its about grabbing there attention in the minimum span of time.\n\nQuestion 3: Was it On-Campus or Off-Campus?\n:  This was Off-Campus, through LinkedIn.\n\nQuestion 4: Does Zomato hires On-Campus?\n:  Yes, it does hire On-Campus, but I am not aware of the name of the colleges.\n\nQuestion 5: Were you asked DSA questions in the interview?\n:  No, I wasn't, and I think that's not something they were looking for.\n\nThank you so much for reading this. I am glad to share my experience and help and motivate the others through this.\nLet me know in comments if there's something I missed that you would like to know 😄",
+    "date": "2022-02-01",
+    "categories": [
+      "📝 Publications & Articles",
+      "Articles"
+    ],
+    "tags": [
+      "Careers, Software Development, Internships"
+    ],
+    "pin": true
+  },
+  {
+    "id": "software-developer-intern-zomato",
+    "slug": "software-developer-intern-zomato",
+    "title": "Software Developer Intern at Zomato",
+    "description": "Ads Team | Full-Time",
+    "content": "* I joined the Ads team and was entrusted with full ownership of the Ads Creation Platform on Zomato's restaurant partner app. Led the integration of multiple ad products, enhancing platform versatility and utility for restaurant owners.\n* Streamlined the complete ad creation process, from campaign initiation to performance tracking. Achieved a 2-3x increase in user traffic with ads on the merchant app through targeted optimizations.",
+    "date": "2022-01-03",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Experience"
+    ],
+    "tags": [
+      "MongoDB, Apache Kafka, Amazon Web Services (AWS), MySQL, Web Development, JSON",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API",
+      "Redux, New Relic APM, Kibana, Front-end Development, Python, JavaScript, Grafana, ETL"
+    ],
+    "pin": false,
+    "workTime": "Full-Time"
+  },
+  {
+    "id": "a-study-of-lightweight-approaches-to-analyze-crime-conditions-in-india",
+    "slug": "a-study-of-lightweight-approaches-to-analyze-crime-conditions-in-india",
+    "title": "A Study of Lightweight Approaches to Analyze Crime Conditions in India",
+    "description": "Crime Analysis and Prediction in India 2001-2019",
+    "content": "This research paper explores crime trends in India from 2001 to 2019, utilizing a top-to-bottom analytical approach. Key methods include heat map visualizations that pinpoint crime types across all states of India. It also incorporates an examination of various demographic factors, such as age groups, gender, and caste, to provide a comprehensive understanding of crime patterns.\n\nProactive measures based on these analyses are proposed to mitigate crime rates and criminal activities effectively.\n\nThe full research paper is available on Taylor & Francis Online. Access it [here](https://www.tandfonline.com/doi/abs/10.1080/19361610.2021.2006031).",
+    "date": "2021-12-02",
+    "categories": [
+      "📝 Publications & Articles",
+      "Publications"
+    ],
+    "tags": [
+      "Research, Python, Data Mining, Random Forest, Data Visualization, Naive Bayes Classifier, Descision Trees, Tableau"
+    ],
+    "pin": false
+  },
+  {
+    "id": "amegma-galaxy-attack",
+    "slug": "amegma-galaxy-attack",
+    "title": "Amegma Galaxy Attack",
+    "description": "An inspiration of the original Atari Space Invaders game built in pygame 👾 🎮",
+    "content": "[<img src=\"https://upload.wikimedia.org/wikipedia/commons/a/ae/Github-desktop-logo-symbol.svg\" width=\"22\" height=\"22\"> GitHub Repo](https://github.com/Amegma/Galaxy-Attack)\n\nThis project comes under an open-source gaming organization called [Amegma](https://github.com/Amegma), and it is an inspiration of an arcade game which was Atari Space Invaders\n\n[Demo Game Video](https://youtu.be/ejA89NtTH2k)\n\n## Technologies Used\n\n- Python\n- Framework - PyGame\n- Other modules - time, os, sys, ctypes, etc.\n\n## Guidelines to setup\n\n### Prerequisites\n\n- Python should be installed: `Python version > 3.10`\n- Pygame should be installed: `Pygame version > 1.9.5`\n\n### Run the game\n```\npython <file_path>/main.py\n```\n\n### Create a release\n```\npyinstaller.exe .\\main.spec\n```\n\n## DEMO\n\n#### IMAGES:\n\n<img src=\"assets/img/posts/projects/amegma-galaxy-attack/1.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/amegma-galaxy-attack/2.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/amegma-galaxy-attack/3.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/amegma-galaxy-attack/4.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/amegma-galaxy-attack/5.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/amegma-galaxy-attack/6.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/amegma-galaxy-attack/7.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/amegma-galaxy-attack/8.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/amegma-galaxy-attack/9.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/amegma-galaxy-attack/10.png\" width=\"75%\" />",
+    "date": "2021-07-29",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Projects"
+    ],
+    "tags": [
+      "Python, Git, GitHub, Pygame"
+    ],
+    "pin": false
+  },
+  {
+    "id": "software-developer-intern-dirio",
+    "slug": "software-developer-intern-dirio",
+    "title": "Software Developer Intern at Dirio",
+    "description": "",
+    "content": "* Dirio is a UK-based startup that is in its initial phase but led by a team of well-experienced people of at least 20+ years of experience each.\n* My responsibilities were as a FullStack developer-oriented towards the front end and user interface technologies, with server-side work as well\n* Technologies I used in the process was React.js with TypeScript on the front-end and some work in Python on the back-end, on a Linux environment.",
+    "date": "2021-06-01",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Experience"
+    ],
+    "tags": [],
+    "pin": false,
+    "workTime": "Part-Time"
+  },
+  {
+    "id": "open-source-contributor-gssoc",
+    "slug": "open-source-contributor-gssoc",
+    "title": "Open Source Contributor at GSSOC",
+    "description": "GirlScript Summer of Code | Part-Time",
+    "content": "GirlScript Summer of Code is the 3 month-long Open Source program during summers conducted by GirlScript Foundation, started in 2018, with an aim to help beginners get started with Open Source Development while encouraging diversity.\n\n* Contributed to two Open Source projects and mostly in the back-end code base.\n* The technologies to which I contributed to were Node.js, React.js, and MongoDB.",
+    "date": "2021-02-20",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Experience"
+    ],
+    "tags": [],
+    "pin": false,
+    "workTime": "Part-Time"
+  },
+  {
+    "id": "junior-developer-techpot",
+    "slug": "junior-developer-techpot",
+    "title": "Junior Developer Techpot",
+    "description": "",
+    "content": "Worked with the creator of Techpot (<https://techpot.io>), a curated platform for developer resources for various programming languages.\n\n* I worked on some intermediate tasks and as a data maintainer.\n* Technologies used in the work are Node.js, Next.js, and PostgreSQL",
+    "date": "2021-02-01",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Experience"
+    ],
+    "tags": [],
+    "pin": false,
+    "workTime": "Part-Time"
+  },
+  {
+    "id": "sd-times",
+    "slug": "sd-times",
+    "title": "SD Times Flutter App",
+    "description": "Software Development Times is a cross-platform mobile app consisting of news in the interest of developers. 📱",
+    "content": "[<img src=\"https://upload.wikimedia.org/wikipedia/commons/a/ae/Github-desktop-logo-symbol.svg\" width=\"22\" height=\"22\"> GitHub Repo](https://github.com/Mayank0255/SD-Times)\n\n## Technologies Used\n\n* Programming Language: `Dart with flutter as the framework`\n* API used: `Hacker News API`\n* As Database: `Sqlite`\n\n#### App Installation - [Get APK](https://drive.google.com/file/d/1wBy__RFOkYltBjbF5IUgNRTMRMpAiYKv/view?usp=sharing)\n\n## Guidelines to setup\n\n1. Clone the repository\n    ```\n    git clone https://github.com/Mayank0255/SD-Times.git\n    \n    gh repo clone Mayank0255/SD-Times (for GitHub CLI)\n    \n    cd SD-Times\n    ```\n2. Run the app\n    ```\n    flutter run\n    ```\n\n## Demo\n  \n### Images\n\n<img src=\"assets/img/posts/projects/sd-times/1.webp\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/sd-times/2.webp\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/sd-times/3.webp\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/sd-times/4.webp\" width=\"75%\" />",
+    "date": "2020-10-03",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Projects"
+    ],
+    "tags": [
+      "Flutter, Git, GitHub, App"
+    ],
+    "pin": false
+  },
+  {
+    "id": "subject-matter-expert-chegg",
+    "slug": "subject-matter-expert-chegg",
+    "title": "Subject Matter Expert at Chegg",
+    "description": "",
+    "content": "- Worked as a Subject Matter Expert and my job is to answer Computer Science related questions asked by other students.\n- It also helps in revision of my own Computer Science topics and concepts.",
+    "date": "2020-10-01",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Volunteering"
+    ],
+    "tags": [],
+    "pin": false
+  },
+  {
+    "id": "algoexpert-completion",
+    "slug": "algoexpert-completion",
+    "title": "AlgoExpert in Python",
+    "description": "Designed for coding interview preparation",
+    "content": "The AlgoExpert Python course is designed for coding interview preparation, offering comprehensive training in algorithms and data structures. It includes over 100 coding problems, detailed video explanations, and a hands-on coding environment. This course aims to improve problem-solving skills and prepare learners for technical interviews in software development\n\n<img src=\"assets/img/posts/certifications/algoexpert/algoExpert-certificate.jpg\" width=\"75%\">",
+    "date": "2020-08-22",
+    "categories": [
+      "🎓 Education",
+      "Licenses & certifications"
+    ],
+    "tags": [
+      "Python, Data Structures, Design & Analysis of Algorithm"
+    ],
+    "pin": false
+  },
+  {
+    "id": "resume-chat-bot",
+    "slug": "resume-chat-bot",
+    "title": "Resume Chat-Bot",
+    "description": "A Messenger Chat bot in which a resume will be generated based on a couple of questions asked by the bot 🤖 💬",
+    "content": "[<img src=\"https://upload.wikimedia.org/wikipedia/commons/a/ae/Github-desktop-logo-symbol.svg\" width=\"22\" height=\"22\"> GitHub Repo](https://github.com/Mayank0255/Resume-Bot)\n\n## Technologies Used\n\n### Back-end\n\n* For handling server requests: `Node.js with Express.js Framework`\n* WebHook: `Setuped with Facebook Messenger`\n\n### Front-end\n\n* Resume File Type: `LaTeX`\n* Styling: `CSS` and `BOOTSTRAP`\n\n### Others\n\n* Url: [Resume Builder Site](https://resumebuilderbot.herokuapp.com/)\n* Facebook Page: [Resume Builder Bot](https://www.facebook.com/Resume-Builder-Bot-622691505043730/)\n\n### Scope\n\n* Implement Redis & remove static variable\n\n_NOTE: Not for public use currently due to Facebook policy._\n\n## Demo\n\n### Video - [Watch the Video](https://www.youtube.com/watch?v=QOuzf08SJtA)\n  \n### Images\n\n<img src=\"assets/img/posts/projects/resume-chat-bot/1.webp\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/resume-chat-bot/2.webp\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/resume-chat-bot/3.webp\" width=\"75%\" />",
+    "date": "2020-08-19",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Projects"
+    ],
+    "tags": [
+      "JavaScript, Node.js, Git, Back-End Web Development, GitHub"
+    ],
+    "pin": false
+  },
+  {
+    "id": "aws-concepts-udemy",
+    "slug": "aws-concepts-udemy",
+    "title": "AWS Concepts",
+    "description": "",
+    "content": "<img src=\"assets/img/posts/certifications/aws-concepts/UC-45808fb4-f30d-4469-9ebe-cee993ced0c8.jpg\" width=\"75%\">",
+    "date": "2020-06-02",
+    "categories": [
+      "🎓 Education",
+      "Licenses & certifications"
+    ],
+    "tags": [
+      "MongoDB, Apache Kafka, Amazon Web Services (AWS), MySQL, Web Development, JSON",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API",
+      "Redux, New Relic APM, Kibana, Front-end Development, Python, JavaScript, Grafana, ETL"
+    ],
+    "pin": false
+  },
+  {
+    "id": "modern-python-bootcamp.udemy",
+    "slug": "modern-python-bootcamp.udemy",
+    "title": "The Modern Python 3 Bootcamp",
+    "description": "",
+    "content": "<img src=\"assets/img/posts/certifications/modern-python/UC-44018296-48d7-4a43-ad63-0cb285bf4ae1.jpg\" width=\"75%\">",
+    "date": "2020-05-06",
+    "categories": [
+      "🎓 Education",
+      "Licenses & certifications"
+    ],
+    "tags": [
+      "MongoDB, Apache Kafka, Amazon Web Services (AWS), MySQL, Web Development, JSON",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API",
+      "Redux, New Relic APM, Kibana, Front-end Development, Python, JavaScript, Grafana, ETL"
+    ],
+    "pin": false
+  },
+  {
+    "id": "backend-developer-intern-stack-finance",
+    "slug": "backend-developer-intern-stack-finance",
+    "title": "Back-end Developer Intern at Stack Finance",
+    "description": "",
+    "content": "* Worked on building a Package for a specific feature in which other third-party APIs would be integrated.\n* Worked on building/analyzing schemas and worked on web sockets.\n* Built API Docs for the Back-end API.\n* Built some user flows for some research tasks like UPI and KYC.",
+    "date": "2020-05-01",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Experience"
+    ],
+    "tags": [],
+    "pin": false,
+    "workTime": "Full-Time"
+  },
+  {
+    "id": "complete-react-developer",
+    "slug": "complete-react-developer",
+    "title": "Complete React Developer",
+    "description": "",
+    "content": "<img src=\"assets/img/posts/certifications/react-developer/UC-634c1d23-740f-47ad-9464-c8b1b56b176b.jpg\" width=\"75%\">",
+    "date": "2020-04-19",
+    "categories": [
+      "🎓 Education",
+      "Licenses & certifications"
+    ],
+    "tags": [
+      "MongoDB, Apache Kafka, Amazon Web Services (AWS), MySQL, Web Development, JSON",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API",
+      "Redux, New Relic APM, Kibana, Front-end Development, Python, JavaScript, Grafana, ETL"
+    ],
+    "pin": false
+  },
+  {
+    "id": "stackoverflow-clone",
+    "slug": "stackoverflow-clone",
+    "title": "StackOverflow CLONE",
+    "description": "Clone project of a famous Q/A website for developers built using MySQL, Express, React, Node, Sequelize",
+    "content": "[![Version](https://img.shields.io/static/v1?label=version&message=2.0.0&color=blue)](https://shields.io/)\n[![NPM](https://img.shields.io/static/v1?label=npm&message=6.8.5&color=blue)](https://shields.io/)\n[![NODE](https://img.shields.io/static/v1?label=node&message=10.12.8&color=success)](https://shields.io/)\n[![MYSQL](https://img.shields.io/static/v1?label=mysql&message=8.0.10&color=blueviolet)](https://shields.io/)\n[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://shields.io/)\n\n<div class=\"video-wrapper\">\n  <video src=\"stackoverflow-demo.mp4\" controls />\n</div>\n\n### [🌐 Website](https://stackoverflow-clone-client.vercel.app)  |  [<img src=\"https://upload.wikimedia.org/wikipedia/commons/a/ae/Github-desktop-logo-symbol.svg\" width=\"22\" height=\"22\"> Frontend Repo](https://github.com/Mayank0255/Stackoverflow-Clone-Frontend)  |  [<img src=\"https://upload.wikimedia.org/wikipedia/commons/a/ae/Github-desktop-logo-symbol.svg\" width=\"22\" height=\"22\"> Backend Repo](https://github.com/Mayank0255/Stackoverflow-Clone-Backend)  |  [📹 Demo Video](https://www.youtube.com/watch?v=bUAAgfGOfYg)\n\n* It’s a clone project of a famously known QnA Website, built in using MySQL, Sequelize, Express, React and Node.js. Deployed on Vercel and Render.\n* Up till now, the project has gathered quite a traffic, which is of about 500+ GitHub stars on Frontend, and\n100+ stars on Backend.\n* I have converted it into an open-source project and now I have about 8-9 active contributors to it.\n\n## My Tech Stack (MERN)\n\n### Front-end\n\n* Front-end Framework: `React.js (with Redux)`\n* Styling: `SASS` and `BOOTSTRAP`\n\n### Back-end\n\n* For handling index requests: `Node.js with Express.js Framework`\n* As Database: `MySQL with Sequelize`\n* API tested using: `POSTMAN`\n\n## API Endpoints\n\nAPI is currently hosted on __[stackoverflow-clone-api.onrender.com](https://stackoverflow-clone-api.onrender.com) (Primary)__ and __[stackoverflow-clone-backend.herokuapp.com](https://stackoverflow-clone-backend.herokuapp.com)__.\n\nYou can view and read the API endpoints samples [here](https://documenter.getpostman.com/view/10053385/UVC3kTiG#f02c9fce-5737-4cd6-9d8e-ad48233102c7). This is API documentation for the back-end.\n\n### Base Url - `{API_URL}/api`\n\n### Users\n\n* `GET /auth`\n* `POST /auth`\n* `POST /users/:id`\n* `GET /users`\n* `GET /users/:id`\n\n### Posts\n\n* `GET /posts`\n* `GET /posts/top`\n* `GET /posts/tag/:tagname`\n* `GET /posts/:id`\n* `POST /posts/`\n* `DELETE /posts/:id`\n\n### Answers\n\n* `GET /posts/answers/:id`\n* `POST /posts/answers/:id`\n* `DELETE /posts/answers/:id`\n\n### Comments\n\n* `GET /posts/comments/:id`\n* `POST /posts/comments/:id`\n* `DELETE /posts/comments/:id`\n\n### Tags\n\n* `GET /tags`\n* `GET /tags/:tag_name`\n\n## Contributing\n\n* Go to [Contributing.md](./CONTRIBUTING.md)\n\n## Demo\n\n### Video - [Watch the video](https://www.youtube.com/watch?v=bUAAgfGOfYg)\n\n_Video Last Updated on 7th March, 2022_\n\n### Images\n\n<img src=\"assets/img/posts/projects/stackoverflow-clone/1.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/stackoverflow-clone/2.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/stackoverflow-clone/4.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/stackoverflow-clone/6.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/stackoverflow-clone/7.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/stackoverflow-clone/9.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/stackoverflow-clone/10.png\" width=\"75%\" />",
+    "date": "2020-04-12",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Projects"
+    ],
+    "tags": [
+      "JavaScript, Node.js, MySQL, React.js, Git, Back-End Web Development, Web Development, Redux, SQL",
+      "Express.js, GitHub, Cascading Style Sheets (CSS), Postman API, Full-Stack Development, Front-end Development"
+    ],
+    "pin": false
+  },
+  {
+    "id": "blog-site",
+    "slug": "blog-site",
+    "title": "Blog Site",
+    "description": "A Blog Application that provides the user the accessibility to perform most of the necessary functionalities it should contain",
+    "content": "[<img src=\"https://upload.wikimedia.org/wikipedia/commons/a/ae/Github-desktop-logo-symbol.svg\" width=\"22\" height=\"22\"> GitHub Repo](https://github.com/Mayank0255/Blog-Site)\n\n## Technologies Used\n\n### Back-end\n\n* For handling server requests: `Node.Js (with Express Framework)`\n* As Database: `MySQL`\n\n### Front-end\n\n* Tools: `HTML, CSS & Javascript`\n* Framework: `Semantic UI`\n\n## Guidelines to setup\n\n### Prerequisites\n\n* NPM should be installed: `NPM version > 6.8.5`\n* NODE should be installed: `NODE LTS version > 10.12.8`\n* MySQL should be installed: `MySQL version > 8.0.10`\n\n### Steps\n\n1. Create a `.env` file and the format should be as given in `.env.example`.\n2. Run these commands then -\n    ```\n    npm install (To install all the dependencies)\n    \n    npm audit fix     (Run this to audit fix all the vulnerabilities)\n    ```\n3. Run `setup.sql` file in the mysql client\n    ```\n    source <file path>/setup.sql\n    ```\n4. Start the server -\n    ```\n    npm start (run the server)\n    ```\n\n## Demo\n  \n### Images\n\n<img src=\"assets/img/posts/projects/blog-site/1.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/blog-site/2.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/blog-site/3.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/blog-site/4.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/blog-site/5.png\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/blog-site/6.png\" width=\"75%\" />",
+    "date": "2020-03-27",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Projects"
+    ],
+    "tags": [
+      "JavaScript, Node.js, MySQL, Git, Back-End Web Development, Web Development, SQL, Express.js, GitHub",
+      "Cascading Style Sheets (CSS), Postman API, Full-Stack Development, Front-end Development"
+    ],
+    "pin": false
+  },
+  {
+    "id": "the-ultimate-sql-bootcamp",
+    "slug": "the-ultimate-sql-bootcamp",
+    "title": "The Ultimate MySQL Bootcamp",
+    "description": "",
+    "content": "<img src=\"assets/img/posts/certifications/mysql-bootcamp/UC-FCVMK9TI.jpg\" width=\"75%\">",
+    "date": "2020-01-27",
+    "categories": [
+      "🎓 Education",
+      "Licenses & certifications"
+    ],
+    "tags": [
+      "MongoDB, Apache Kafka, Amazon Web Services (AWS), MySQL, Web Development, JSON",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API",
+      "Redux, New Relic APM, Kibana, Front-end Development, Python, JavaScript, Grafana, ETL"
+    ],
+    "pin": false
+  },
+  {
+    "id": "data-structures-and-algorithms-java",
+    "slug": "data-structures-and-algorithms-java",
+    "title": "Data Structures and Algorithms: Deep Dive Using Java",
+    "description": "",
+    "content": "<img src=\"assets/img/posts/certifications/data-structures-java/UC-SGU9LO91.jpg\" width=\"75%\">",
+    "date": "2019-12-27",
+    "categories": [
+      "🎓 Education",
+      "Licenses & certifications"
+    ],
+    "tags": [
+      "MongoDB, Apache Kafka, Amazon Web Services (AWS), MySQL, Web Development, JSON",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API",
+      "Redux, New Relic APM, Kibana, Front-end Development, Python, JavaScript, Grafana, ETL"
+    ],
+    "pin": false
+  },
+  {
+    "id": "moviesurfer",
+    "slug": "moviesurfer",
+    "title": "MovieSurfer",
+    "description": "An inspiration of websites like IMDB & Rotten Tomatoes",
+    "content": "[<img src=\"https://upload.wikimedia.org/wikipedia/commons/a/ae/Github-desktop-logo-symbol.svg\" width=\"22\" height=\"22\"> GitHub Repo](https://github.com/Mayank0255/Movie-Surfer)\n\n## Technologies Used\n\n### Back-end\n\n* For handling server requests: `Node.Js (with Express Framework)`\n* API: `TMDB API`\n* As Database: `MongoDB`\n\n### Front-end\n\n* Tools: `HTML, CSS & Javascript`\n* Styling Framework: `BOOTSTRAP`\n\n## Guidelines to setup\n\n### Prerequisites\n\n* NPM should be installed: `NPM version > 6.8.5`\n* NODE should be installed: `NODE LTS version > 10.12.8`\n* MongoDB should be installed: `MongoDB version > 4.1.0`\n\n### Steps\n\n1. Create a `.env` file and the format should be as given in `.env.example`.\n2. Run these commands then - \n    ```\n    npm install (To install all the dependencies)\n    \n    npm audit fix (Run this to audit fix all the vulnerabilities)\n    ```\n3. Start the server - \n    ```\n    npm start (run the server)\n    ```\n\n## Demo\n\n### Images\n\n<img src=\"assets/img/posts/projects/movie-surfer/2.webp\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/movie-surfer/3.webp\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/movie-surfer/4.webp\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/movie-surfer/5.webp\" width=\"75%\" />\n<img src=\"assets/img/posts/projects/movie-surfer/6.webp\" width=\"75%\" />",
+    "date": "2019-11-01",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Projects"
+    ],
+    "tags": [
+      "JavaScript, Node.js, Git, Back-End Web Development, Web Development, MongoDB, Express.js, GitHub",
+      "Cascading Style Sheets (CSS), Postman API, Full-Stack Development, Front-end Development"
+    ],
+    "pin": false
+  },
+  {
+    "id": "the-web-developer-bootcamp",
+    "slug": "the-web-developer-bootcamp",
+    "title": "The Web Developer Bootcamp",
+    "description": "",
+    "content": "<img src=\"assets/img/posts/certifications/web-developer/UC-7I5IAB5S.jpg\" width=\"75%\">",
+    "date": "2019-10-22",
+    "categories": [
+      "🎓 Education",
+      "Licenses & certifications"
+    ],
+    "tags": [
+      "MongoDB, Apache Kafka, Amazon Web Services (AWS), MySQL, Web Development, JSON",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API",
+      "Redux, New Relic APM, Kibana, Front-end Development, Python, JavaScript, Grafana, ETL"
+    ],
+    "pin": false
+  },
+  {
+    "id": "advanced-styling-with-responsive-design",
+    "slug": "advanced-styling-with-responsive-design",
+    "title": "Advanced Styling with Responsive Design",
+    "description": "",
+    "content": "<img src=\"assets/img/posts/certifications/responsive-design/CERTIFICATE_LANDING_PAGE~W5ADHV3PZFMQ.jpeg\" width=\"75%\">",
+    "date": "2019-08-18",
+    "categories": [
+      "🎓 Education",
+      "Licenses & certifications"
+    ],
+    "tags": [
+      "MongoDB, Apache Kafka, Amazon Web Services (AWS), MySQL, Web Development, JSON",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API",
+      "Redux, New Relic APM, Kibana, Front-end Development, Python, JavaScript, Grafana, ETL"
+    ],
+    "pin": false
+  },
+  {
+    "id": "interactivity-with-javaScript",
+    "slug": "interactivity-with-javaScript",
+    "title": "Interactivity with JavaScript",
+    "description": "",
+    "content": "<img src=\"assets/img/posts/certifications/interactivity-javascript/CERTIFICATE_LANDING_PAGE~VN2VP7R4R9CH.jpeg\" width=\"75%\">",
+    "date": "2019-07-15",
+    "categories": [
+      "🎓 Education",
+      "Licenses & certifications"
+    ],
+    "tags": [
+      "MongoDB, Apache Kafka, Amazon Web Services (AWS), MySQL, Web Development, JSON",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API",
+      "Redux, New Relic APM, Kibana, Front-end Development, Python, JavaScript, Grafana, ETL"
+    ],
+    "pin": false
+  },
+  {
+    "id": "introduction-to-css3",
+    "slug": "introduction-to-css3",
+    "title": "Introduction to CSS3",
+    "description": "",
+    "content": "<img src=\"assets/img/posts/certifications/introduction-css3/CERTIFICATE_LANDING_PAGE~ENN8TMVJXGDX.jpeg\" width=\"75%\">",
+    "date": "2019-07-11",
+    "categories": [
+      "🎓 Education",
+      "Licenses & certifications"
+    ],
+    "tags": [
+      "MongoDB, Apache Kafka, Amazon Web Services (AWS), MySQL, Web Development, JSON",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API",
+      "Redux, New Relic APM, Kibana, Front-end Development, Python, JavaScript, Grafana, ETL"
+    ],
+    "pin": false
+  },
+  {
+    "id": "introduction-to-html5",
+    "slug": "introduction-to-html5",
+    "title": "Introduction to HTML5",
+    "description": "",
+    "content": "<img src=\"assets/img/posts/certifications/introduction-html5/CERTIFICATE_LANDING_PAGE~NNJWBZFKSRJH.jpeg\" width=\"75%\">",
+    "date": "2019-06-30",
+    "categories": [
+      "🎓 Education",
+      "Licenses & certifications"
+    ],
+    "tags": [
+      "MongoDB, Apache Kafka, Amazon Web Services (AWS), MySQL, Web Development, JSON",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API",
+      "Redux, New Relic APM, Kibana, Front-end Development, Python, JavaScript, Grafana, ETL"
+    ],
+    "pin": false
+  },
+  {
+    "id": "programming-foundations-with-javaScript-html-and-css",
+    "slug": "programming-foundations-with-javaScript-html-and-css",
+    "title": "Programming Foundations with JavaScript, HTML and CSS",
+    "description": "",
+    "content": "<img src=\"assets/img/posts/certifications/programming-foundations/CERTIFICATE_LANDING_PAGE~7W2TLLFASCSK.jpeg\" width=\"75%\">",
+    "date": "2019-06-11",
+    "categories": [
+      "🎓 Education",
+      "Licenses & certifications"
+    ],
+    "tags": [
+      "MongoDB, Apache Kafka, Amazon Web Services (AWS), MySQL, Web Development, JSON",
+      "Back-End Web Development, Full-Stack Development, PHP, React.js, Git, GitHub, Prometheus.io, Postman API",
+      "Redux, New Relic APM, Kibana, Front-end Development, Python, JavaScript, Grafana, ETL"
+    ],
+    "pin": false
+  },
+  {
+    "id": "tedx-manipal-university-jaipur",
+    "slug": "tedx-manipal-university-jaipur",
+    "title": "Sponsorship Member of TEDxManipalUniversityJaipur",
+    "description": "Worked with the Sponsorship Team of TEDxManipalUniversityJaipur",
+    "content": "Worked with the Sponsorship Team of TEDxManipalUniversityJaipur in getting the sponsors for the re-owned event of the university including the title sponsor.",
+    "date": "2018-10-01",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Volunteering"
+    ],
+    "tags": [],
+    "pin": false
+  },
+  {
+    "id": "acm-manipal-university-jaipur",
+    "slug": "acm-manipal-university-jaipur",
+    "title": "Member of MUJ ACM Student Chapter",
+    "description": "",
+    "content": "I was in the Python batch in which our fellow seniors taught us to code and, we even participated in various coding competitions.",
+    "date": "2018-08-01",
+    "categories": [
+      "🧑🏻‍💻 Work",
+      "Volunteering"
+    ],
+    "tags": [],
+    "pin": false
+  },
+  {
+    "id": "delhi-public-school-sushant-lok",
+    "slug": "delhi-public-school-sushant-lok",
+    "title": "Higher Secondary from Delhi Public School, Sushant Lok",
+    "description": "Science (Non-Medical)",
+    "content": "**School:** Delhi Public School, Sushant Lok  \n**Stream:** Science (Non-Medical)  \n**Graduation Period:** 2018  \n**Percentile:** 85.2%\n\nI completed my secondary education with a strong foundation in science, focusing on mathematics and physical sciences, which laid the groundwork for my subsequent studies in Information Technology at the university level.",
+    "date": "2018-04-15",
+    "categories": [
+      "🎓 Education",
+      "Courses"
+    ],
+    "tags": [],
+    "pin": false
+  }
+]

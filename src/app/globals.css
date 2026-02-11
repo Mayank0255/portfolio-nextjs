@@ -1,26 +1,193 @@
 @import "tailwindcss";
 
+/* Light theme - strong contrast and gradient feel */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f9fa;
+  --foreground: #1a1d21;
+  --main-bg: #f0f2f5;
+  --main-wrapper-bg: linear-gradient(135deg, #f5f6f8 0%, #e8eaef 25%, #e2e5eb 50%, #e8eaef 75%, #f5f6f8 100%);
+  --sidebar-bg: linear-gradient(180deg, #e8eaef 0%, #dee1e8 100%);
+  --sidebar-fg: #1a1d21;
+  --sidebar-border: #d1d5db;
+  --sidebar-hover-bg: rgba(0, 0, 0, 0.08);
+  --card-bg: #ffffff;
+  --card-header-bg: #f1f3f5;
+  --card-border: #e2e6ea;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --border-color: #e2e6ea;
+  --text-muted: #5c6370;
+  --link-color: #1d4ed8;
+  --tag-bg: #e8eaef;
+  --tag-border: #d1d5db;
+  --tag-fg: #1a1d21;
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+}
+
+/* Dark theme - strong contrast, gradient feel, elevated cards */
+.dark {
+  --background: rgb(22, 22, 26);
+  --foreground: rgb(233, 234, 236);
+  --main-bg: rgb(22, 22, 26);
+  --main-wrapper-bg: linear-gradient(
+    135deg,
+    rgb(20, 20, 24) 0%,
+    rgb(32, 33, 40) 25%,
+    rgb(38, 40, 48) 50%,
+    rgb(32, 33, 40) 75%,
+    rgb(20, 20, 24) 100%
+  );
+  --sidebar-bg: radial-gradient(ellipse 80% 100% at 50% 0%, #2a2b32 0%, #1e1f26 50%, #18191f 100%);
+  --sidebar-fg: rgb(243, 244, 246);
+  --sidebar-border: rgb(52, 54, 62);
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.08);
+  --card-bg: rgb(35, 36, 42);
+  --card-header-bg: rgb(42, 44, 52);
+  --card-border: rgb(58, 60, 70);
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.03);
+  --border-color: rgb(58, 60, 70);
+  --text-muted: rgb(165, 170, 182);
+  --link-color: rgb(147, 197, 253);
+  --tag-bg: rgb(48, 50, 58);
+  --tag-border: rgb(68, 71, 82);
+  --tag-fg: rgb(233, 234, 236);
+  --input-bg: rgb(30, 31, 38);
+  --input-border: rgb(68, 71, 82);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
-  background: var(--background);
+  background: var(--main-bg);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.main-wrapper-bg {
+  background: var(--main-wrapper-bg);
+}
+
+.sidebar-bg {
+  background: var(--sidebar-bg);
+}
+
+.sidebar-fg {
+  color: var(--sidebar-fg);
+}
+
+.card-surface {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+}
+
+/* Clickable card with hover animation */
+.card-clickable {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.card-clickable:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: var(--link-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px var(--link-color);
+}
+
+.dark .card-clickable:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--link-color);
+}
+
+.dark .card-surface:hover {
+  border-color: rgb(68, 71, 82);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+/* Inline icon images in About section */
+.about-inline-icons p img {
+  display: inline !important;
+  width: 1.25em !important;
+  height: 1.25em !important;
+  max-width: 1.25em !important;
+  vertical-align: text-bottom !important;
+  border-radius: 0 !important;
+  margin: 0 0.15em !important;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar - light */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background: rgb(75, 78, 90);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgb(95, 98, 110);
+}
+
+/* Animation for edit mode indicator */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Prose styling for about section */
+.prose {
+  max-width: 65ch;
+}
+
+.prose p {
+  margin-bottom: 1em;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Selection color */
+:root::selection {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.dark::selection {
+  background-color: rgb(59, 130, 246);
+  color: white;
 }
