@@ -11,6 +11,7 @@
     "ingest-posts": "node scripts/ingest-posts.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.74.0",
     "mongoose": "^9.1.5",
     "next": "16.1.6",
     "react": "19.2.3",

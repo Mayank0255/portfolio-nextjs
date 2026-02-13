@@ -2,7 +2,7 @@
 
 import { About, Experience, Projects, Skills, Timeline } from "@/components/sections";
 import { usePortfolio } from "@/context/PortfolioContext";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { markdownToHtml, markdownProseClass } from "@/lib/markdown";
@@ -247,12 +247,6 @@ export default function Home() {
           <Timeline />
         </section>
       </div>
-
-      {showHint && !isEditMode && (
-        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-gray-800 text-gray-300 px-4 py-2 rounded-lg text-sm opacity-60 hover:opacity-100 transition-opacity">
-          <span className="text-gray-500">Hint: Type the secret phrase to edit</span>
-        </div>
-      )}
 
       {showAddPostModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">

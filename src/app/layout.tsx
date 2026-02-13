@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { PortfolioProvider } from "@/context/PortfolioContext";
+import { ChatBot } from "@/components/ChatBot";
 
 export const metadata: Metadata = {
   title: "Mayank Aggarwal | Portfolio",
@@ -40,6 +41,7 @@ export default function RootLayout({
       <body className="antialiased">
         <PortfolioProvider>
           {children}
+          <ChatBot />
         </PortfolioProvider>
       </body>
     </html>
