@@ -257,7 +257,7 @@ export function ChatBot() {
                 onKeyDown={handleKeyDown}
                 placeholder="Ask about Mayank..."
                 disabled={isStreaming}
-                className="flex-1 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl px-4 py-2.5 text-sm text-[var(--foreground)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--link-color)] disabled:opacity-50"
+                className="flex-1 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl px-4 py-2.5 text-base text-[var(--foreground)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--link-color)] disabled:opacity-50"
               />
               <button
                 onClick={sendMessage}
@@ -273,22 +273,18 @@ export function ChatBot() {
         </div>
       )}
 
-      {/* Floating Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="cursor-pointer fixed bottom-4 right-4 md:right-8 z-50 w-14 h-14 rounded-full bg-[var(--link-color)] text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center"
-        aria-label="Chat with AI assistant"
-      >
-        {isOpen ? (
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        ) : (
+      {/* Floating Button - hidden when chat is open (header has close button) */}
+      {!isOpen && (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="cursor-pointer fixed bottom-4 right-4 md:right-8 z-50 w-14 h-14 rounded-full bg-[var(--link-color)] text-white shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center"
+          aria-label="Chat with AI assistant"
+        >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
           </svg>
-        )}
-      </button>
+        </button>
+      )}
     </>
   );
 }
