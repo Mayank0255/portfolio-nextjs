@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import { markdownToHtml, markdownProseClass } from "@/lib/markdown";
-import { EditableText, EditableList } from "@/components/EditableText";
+import { EditableText, EditableList, useAllSuggestions } from "@/components/EditableText";
 import { EditableMarkdown } from "@/components/EditableMarkdown";
 import { PostDetailSkeleton } from "@/components/SkeletonLoading";
 import { formatTimelineDate } from "@/components/sections/timelineStyles";
@@ -66,6 +66,7 @@ export default function PostPage() {
   const params = useParams();
   const slug = decodeURIComponent((params.slug as string) || "");
   const { data, isEditMode, isLoading } = usePortfolio();
+  const { allTags, allCategories } = useAllSuggestions();
   const posts = data.posts || [];
   const postIndex = posts.findIndex((p) => p.slug === slug);
   const post = postIndex >= 0 ? posts[postIndex] : null;
@@ -195,6 +196,7 @@ export default function PostPage() {
                   path={`posts.${postIndex}.categories`}
                   items={post.categories || []}
                   itemClassName="inline-block mr-2 px-2 py-1 rounded border border-[var(--border-color)] text-sm"
+                  suggestions={allCategories}
                 />
               ) : (
                 post.categories?.map((c) => (
@@ -215,6 +217,7 @@ export default function PostPage() {
                   path={`posts.${postIndex}.tags`}
                   items={post.tags || []}
                   itemClassName="inline-block mr-2 px-2 py-1 rounded border border-[var(--border-color)] text-sm"
+                  suggestions={allTags}
                 />
               ) : (
                 post.tags?.map((t) => (

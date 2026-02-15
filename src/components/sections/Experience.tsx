@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePortfolio } from "@/context/PortfolioContext";
-import { EditableText, EditableList } from "../EditableText";
+import { EditableText, EditableList, useAllSuggestions } from "../EditableText";
 import { EditableMarkdown } from "../EditableMarkdown";
 import { formatTimelineDate } from "./timelineStyles";
 
@@ -24,6 +24,7 @@ function isExperiencePost(categories: string[]): boolean {
 
 export function Experience() {
   const { data, isEditMode, updateField, removeItem } = usePortfolio();
+  const { allTags } = useAllSuggestions();
   const [showAddForm, setShowAddForm] = useState(false);
   const posts = data.posts || [];
 
@@ -157,6 +158,7 @@ export function Experience() {
                     items={technologies}
                     className="mt-4"
                     itemClassName="bg-[var(--tag-bg)] text-[var(--tag-fg)] border border-[var(--tag-border)] px-3 py-1 rounded-full text-sm"
+                    suggestions={allTags}
                   />
                 ) : (
                   <div className="flex flex-wrap gap-2 mt-4">

@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { markdownToHtml, markdownProseClass } from "@/lib/markdown";
 import { PageSkeleton } from "@/components/SkeletonLoading";
 import { formatTimelineDate } from "@/components/sections/timelineStyles";
+import { SuggestionInput, useAllSuggestions } from "@/components/EditableText";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -32,8 +33,8 @@ interface NewPostForm {
   title: string;
   description: string;
   content: string;
-  categories: string;
-  tags: string;
+  categories: string[];
+  tags: string[];
   date: string;
   pin: boolean;
   coverImage: string;
@@ -43,8 +44,8 @@ const initialFormState: NewPostForm = {
   title: "",
   description: "",
   content: "",
-  categories: "",
-  tags: "",
+  categories: [],
+  tags: [],
   date: getTodayDate(),
   pin: false,
   coverImage: "",
@@ -52,6 +53,7 @@ const initialFormState: NewPostForm = {
 
 export default function Home() {
   const { data, isEditMode, isLoading, updateField } = usePortfolio();
+  const { allTags, allCategories } = useAllSuggestions();
   const router = useRouter();
   const [page, setPage] = useState(1);
   const [showAddPostModal, setShowAddPostModal] = useState(false);
@@ -77,14 +79,8 @@ export default function Home() {
       description: newPost.description.trim() || undefined,
       content: newPost.content.trim() || "# " + newPost.title.trim() + "\n\nWrite your content here...",
       date: newPost.date,
-      categories: newPost.categories
-        .split(",")
-        .map((c) => c.trim())
-        .filter(Boolean),
-      tags: newPost.tags
-        .split(",")
-        .map((t) => t.trim())
-        .filter(Boolean),
+      categories: newPost.categories.filter(Boolean),
+      tags: newPost.tags.filter(Boolean),
       pin: newPost.pin,
       ...(newPost.coverImage.trim() && { image: { src: newPost.coverImage.trim(), alt: newPost.title.trim() } }),
     };
@@ -342,11 +338,38 @@ export default function Home() {
                   <label className="block text-sm font-medium text-[var(--foreground)] mb-1">
                     Categories
                   </label>
-                  <input
-                    type="text"
-                    value={newPost.categories}
-                    onChange={(e) => setNewPost((prev) => ({ ...prev, categories: e.target.value }))}
-                    placeholder="Work, Experience (comma-separated)"
+                  <div className="flex flex-wrap gap-1.5 mb-2">
+                    {newPost.categories.map((c, i) => (
+                      <span
+                        key={i}
+                        className="inline-flex items-center gap-1 bg-[var(--tag-bg)] text-[var(--tag-fg)] border border-[var(--tag-border)] px-2 py-0.5 rounded-full text-sm"
+                      >
+                        {c}
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setNewPost((prev) => ({
+                              ...prev,
+                              categories: prev.categories.filter((_, idx) => idx !== i),
+                            }))
+                          }
+                          className="text-red-400 hover:text-red-600 ml-0.5"
+                        >
+                          &times;
+                        </button>
+                      </span>
+                    ))}
+                  </div>
+                  <SuggestionInput
+                    onSelect={(v) =>
+                      setNewPost((prev) => ({
+                        ...prev,
+                        categories: prev.categories.includes(v) ? prev.categories : [...prev.categories, v],
+                      }))
+                    }
+                    suggestions={allCategories}
+                    exclude={newPost.categories}
+                    placeholder="Select or type category..."
                     className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] rounded-lg px-4 py-2 text-[var(--foreground)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--link-color)]"
                   />
                 </div>
@@ -355,11 +378,38 @@ export default function Home() {
                   <label className="block text-sm font-medium text-[var(--foreground)] mb-1">
                     Tags
                   </label>
-                  <input
-                    type="text"
-                    value={newPost.tags}
-                    onChange={(e) => setNewPost((prev) => ({ ...prev, tags: e.target.value }))}
-                    placeholder="React, TypeScript (comma-separated)"
+                  <div className="flex flex-wrap gap-1.5 mb-2">
+                    {newPost.tags.map((t, i) => (
+                      <span
+                        key={i}
+                        className="inline-flex items-center gap-1 bg-[var(--tag-bg)] text-[var(--tag-fg)] border border-[var(--tag-border)] px-2 py-0.5 rounded-full text-sm"
+                      >
+                        {t}
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setNewPost((prev) => ({
+                              ...prev,
+                              tags: prev.tags.filter((_, idx) => idx !== i),
+                            }))
+                          }
+                          className="text-red-400 hover:text-red-600 ml-0.5"
+                        >
+                          &times;
+                        </button>
+                      </span>
+                    ))}
+                  </div>
+                  <SuggestionInput
+                    onSelect={(v) =>
+                      setNewPost((prev) => ({
+                        ...prev,
+                        tags: prev.tags.includes(v) ? prev.tags : [...prev.tags, v],
+                      }))
+                    }
+                    suggestions={allTags}
+                    exclude={newPost.tags}
+                    placeholder="Select or type tag..."
                     className="w-full bg-[var(--input-bg)] border border-[var(--input-border)] rounded-lg px-4 py-2 text-[var(--foreground)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--link-color)]"
                   />
                 </div>

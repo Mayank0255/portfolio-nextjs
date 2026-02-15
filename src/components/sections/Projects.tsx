@@ -3,12 +3,13 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePortfolio } from "@/context/PortfolioContext";
-import { EditableText, EditableList } from "../EditableText";
+import { EditableText, EditableList, useAllSuggestions } from "../EditableText";
 import { EditableMarkdown } from "../EditableMarkdown";
 import { findPostSlugByProject } from "@/utils/postMatch";
 
 export function Projects() {
   const { data, isEditMode, updateField } = usePortfolio();
+  const { allTags } = useAllSuggestions();
   const [showAddForm, setShowAddForm] = useState(false);
 
   const handleAddProject = () => {
@@ -105,6 +106,7 @@ export function Projects() {
                 items={project.technologies}
                 className="mb-4"
                 itemClassName="bg-[var(--tag-bg)] text-[var(--tag-fg)] border border-[var(--tag-border)] px-3 py-1 rounded-full text-sm"
+                suggestions={allTags}
               />
 
               <span
