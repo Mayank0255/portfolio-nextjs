@@ -5,33 +5,49 @@ import Link from "next/link";
 import { usePortfolio } from "@/context/PortfolioContext";
 import { EditableText } from "../EditableText";
 import { EditableMarkdown } from "../EditableMarkdown";
-import { findPostSlugByTimelineEvent } from "@/utils/postMatch";
-import { typeColors, typeIcons } from "./timelineStyles";
+import { typeColors, typeIcons, categoryToType, formatTimelineDate } from "./timelineStyles";
+
+const HOME_TIMELINE_LIMIT = 10;
 
 export function Timeline() {
-  const { data, isEditMode, updateField } = usePortfolio();
+  const { data, isEditMode, updateField, removeItem } = usePortfolio();
   const [showAddForm, setShowAddForm] = useState(false);
   const [newType, setNewType] = useState<"work" | "education" | "achievement" | "certification" | "publication">("work");
 
+  const posts = data.posts || [];
+
+  // Sort posts by ISO date descending, track original index for edit paths
+  const sorted = posts
+    .map((post, originalIndex) => ({ post, originalIndex }))
+    .sort((a, b) => b.post.date.localeCompare(a.post.date));
+
+  // Show limited items on home page
+  const displayed = sorted.slice(0, HOME_TIMELINE_LIMIT);
+
   const handleAddEvent = () => {
-    const newEvent = {
-      id: `tl-${Date.now()}`,
-      date: new Date().getFullYear().toString(),
+    const typeToCategory: Record<string, string> = {
+      work: "🧑🏻‍💻 Work",
+      education: "🎓 Education",
+      achievement: "Projects",
+      certification: "Licenses & certifications",
+      publication: "📝 Publications & Articles",
+    };
+    const newPost = {
+      id: `post-${Date.now()}`,
+      slug: `new-event-${Date.now()}`,
       title: "New Event",
       description: "Describe this event...",
-      type: newType,
+      content: "Describe this event...",
+      date: new Date().toISOString().split("T")[0],
+      categories: [typeToCategory[newType] || "🧑🏻‍💻 Work"],
+      tags: [],
     };
-    updateField("timeline", [...data.timeline, newEvent]);
+    updateField("posts", [...posts, newPost]);
     setShowAddForm(false);
   };
 
-  const handleRemoveEvent = (index: number) => {
-    const newTimeline = data.timeline.filter((_, i) => i !== index);
-    updateField("timeline", newTimeline);
-  };
-
-  const handleTypeChange = (index: number, newType: string) => {
-    updateField(`timeline.${index}.type`, newType);
+  const handleRemovePost = (originalIndex: number) => {
+    removeItem("posts", originalIndex);
   };
 
   return (
@@ -40,17 +56,27 @@ export function Timeline() {
         <h2 className="text-3xl font-bold text-[var(--foreground)]">
           Timeline
         </h2>
-        {isEditMode && (
-          <button
-            onClick={() => setShowAddForm(true)}
-            className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-            </svg>
-            Add Event
-          </button>
-        )}
+        <div className="flex items-center gap-3">
+          {isEditMode && (
+            <button
+              onClick={() => setShowAddForm(true)}
+              className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              </svg>
+              Add Event
+            </button>
+          )}
+          {sorted.length > HOME_TIMELINE_LIMIT && (
+            <Link
+              href="/timeline"
+              className="text-sm text-[var(--link-color)] hover:underline"
+            >
+              View all {sorted.length} →
+            </Link>
+          )}
+        </div>
       </div>
 
       <div className="relative">
@@ -58,9 +84,11 @@ export function Timeline() {
         <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-[var(--card-border)]" />
 
         <div className="space-y-8">
-          {data.timeline.map((event, index) => {
-            const postSlug = findPostSlugByTimelineEvent(data.posts || [], event);
-            const isClickable = !isEditMode && postSlug;
+          {displayed.map(({ post, originalIndex }) => {
+            const type = categoryToType(post.categories || []);
+            const isClickable = !isEditMode;
+            const displayDate = formatTimelineDate(post.date);
+            const description = post.description || post.content.slice(0, 200).replace(/[#*_\n]/g, "").trim();
 
             const cardContent = (
               <>
@@ -69,7 +97,7 @@ export function Timeline() {
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      handleRemoveEvent(index);
+                      handleRemovePost(originalIndex);
                     }}
                     className="absolute top-4 right-4 text-red-500 hover:text-red-700 transition-colors z-10"
                     title="Remove"
@@ -83,69 +111,56 @@ export function Timeline() {
                 <div className="flex items-center gap-3 mb-2">
                   {isEditMode ? (
                     <EditableText
-                      path={`timeline.${index}.date`}
-                      value={event.date}
+                      path={`posts.${originalIndex}.date`}
+                      value={post.date}
                       as="span"
                       className="text-sm font-medium text-[var(--text-muted)]"
                     />
                   ) : (
                     <span className="text-sm font-medium text-[var(--text-muted)]">
-                      {event.date}
+                      {displayDate}
                     </span>
-                  )}
-                  {isEditMode && (
-                    <select
-                      value={event.type}
-                      onChange={(e) => handleTypeChange(index, e.target.value)}
-                      className="text-xs bg-[var(--tag-bg)] border border-[var(--tag-border)] rounded px-2 py-1"
-                    >
-                      <option value="work">Work</option>
-                      <option value="education">Education</option>
-                      <option value="achievement">Achievement</option>
-                      <option value="certification">Certification</option>
-                      <option value="publication">Publication</option>
-                    </select>
                   )}
                 </div>
 
                 {isEditMode ? (
                   <EditableText
-                    path={`timeline.${index}.title`}
-                    value={event.title}
+                    path={`posts.${originalIndex}.title`}
+                    value={post.title}
                     as="h3"
                     className="text-lg font-semibold text-[var(--foreground)] mb-2"
                   />
                 ) : (
                   <h3 className={`text-lg font-semibold mb-2 ${isClickable ? "text-[var(--link-color)]" : "text-[var(--foreground)]"}`}>
-                    {event.title}
+                    {post.title}
                   </h3>
                 )}
 
                 {isEditMode ? (
                   <EditableMarkdown
-                    path={`timeline.${index}.description`}
-                    value={event.description}
+                    path={`posts.${originalIndex}.description`}
+                    value={description}
                     className="text-[var(--foreground)]"
                     compact
                   />
                 ) : (
-                  <p className="text-[var(--foreground)]">{event.description}</p>
+                  <p className="text-[var(--foreground)]">{description}</p>
                 )}
               </>
             );
 
             return (
-              <div key={event.id} className="relative pl-12">
+              <div key={post.id || post.slug} className="relative pl-12">
                 {/* Timeline dot */}
                 <div
-                  className={`absolute left-0 w-8 h-8 rounded-full ${typeColors[event.type]} flex items-center justify-center text-white shadow-lg`}
+                  className={`absolute left-0 w-8 h-8 rounded-full ${typeColors[type] || typeColors.work} flex items-center justify-center text-white shadow-lg`}
                 >
-                  {typeIcons[event.type]}
+                  {typeIcons[type] || typeIcons.work}
                 </div>
 
                 {isClickable ? (
                   <Link
-                    href={`/post/${postSlug}`}
+                    href={`/post/${post.slug}`}
                     className="relative block card-clickable rounded-xl p-6"
                   >
                     {cardContent}
@@ -180,6 +195,7 @@ export function Timeline() {
                 <option value="education">Education</option>
                 <option value="achievement">Achievement</option>
                 <option value="certification">Certification</option>
+                <option value="publication">Publication</option>
               </select>
             </div>
             <div className="flex justify-end gap-3">

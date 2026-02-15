@@ -5,29 +5,52 @@ import Link from "next/link";
 import { usePortfolio } from "@/context/PortfolioContext";
 import { EditableText, EditableList } from "../EditableText";
 import { EditableMarkdown } from "../EditableMarkdown";
-import { findPostSlugByExperience } from "@/utils/postMatch";
+import { formatTimelineDate } from "./timelineStyles";
+
+/** Parse "Role at Company" from a post title. */
+function parseTitle(title: string): { role: string; company: string } {
+  const match = title.match(/^(.+?)\s+at\s+(.+)$/i);
+  if (match) return { role: match[1].trim(), company: match[2].trim() };
+  return { role: title, company: "" };
+}
+
+/** Check if a post belongs to work/experience categories. */
+function isWorkPost(categories: string[]): boolean {
+  return categories.some((c) => {
+    const lower = c.toLowerCase();
+    return lower.includes("work") || lower.includes("experience") || lower.includes("volunteering");
+  });
+}
 
 export function Experience() {
-  const { data, isEditMode, updateField } = usePortfolio();
+  const { data, isEditMode, updateField, removeItem } = usePortfolio();
   const [showAddForm, setShowAddForm] = useState(false);
+  const posts = data.posts || [];
+
+  // Filter to work/experience posts, sort by date descending, track original index
+  const workEntries = posts
+    .map((post, originalIndex) => ({ post, originalIndex }))
+    .filter(({ post }) => isWorkPost(post.categories || []))
+    .sort((a, b) => b.post.date.localeCompare(a.post.date));
 
   const handleAddExperience = () => {
-    const newExp = {
-      id: `exp-${Date.now()}`,
-      company: "New Company",
-      role: "Role Title",
-      period: "2024 - Present",
-      workType: "Full-Time",
+    const newPost = {
+      id: `post-${Date.now()}`,
+      slug: `new-experience-${Date.now()}`,
+      title: "Role Title at Company",
       description: "Describe your role and achievements...",
-      technologies: ["Technology"],
+      content: "Describe your role and achievements...",
+      date: new Date().toISOString().split("T")[0],
+      categories: ["🧑🏻‍💻 Work", "Experience"],
+      tags: ["Technology"],
+      workTime: "Full-Time",
     };
-    updateField("experience", [...data.experience, newExp]);
+    updateField("posts", [...posts, newPost]);
     setShowAddForm(false);
   };
 
-  const handleRemoveExperience = (index: number) => {
-    const newExperience = data.experience.filter((_, i) => i !== index);
-    updateField("experience", newExperience);
+  const handleRemoveExperience = (originalIndex: number) => {
+    removeItem("posts", originalIndex);
   };
 
   return (
@@ -50,9 +73,12 @@ export function Experience() {
       </div>
 
       <div className="space-y-8">
-        {data.experience.map((exp, index) => {
-          const postSlug = findPostSlugByExperience(data.posts || [], exp);
-          const isClickable = !isEditMode && postSlug;
+        {workEntries.map(({ post, originalIndex }) => {
+          const { role, company } = parseTitle(post.title);
+          const isClickable = !isEditMode;
+          const description = post.description || post.content.slice(0, 300).replace(/[#*_\n]/g, "").trim();
+          const displayDate = formatTimelineDate(post.date);
+          const technologies = post.tags || [];
 
           const cardContent = (
             <>
@@ -61,7 +87,7 @@ export function Experience() {
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    handleRemoveExperience(index);
+                    handleRemoveExperience(originalIndex);
                   }}
                   className="absolute top-4 right-4 text-red-500 hover:text-red-700 transition-colors z-10"
                   title="Remove"
@@ -74,66 +100,85 @@ export function Experience() {
 
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                 <div>
-                  {!isEditMode ? (
-                    <h3 className="text-xl font-semibold text-[var(--link-color)]">
-                      {exp.role}
-                    </h3>
-                  ) : (
+                  {isEditMode ? (
                     <EditableText
-                      path={`experience.${index}.role`}
-                      value={exp.role}
+                      path={`posts.${originalIndex}.title`}
+                      value={post.title}
                       as="h3"
                       className="text-xl font-semibold text-[var(--foreground)]"
                     />
+                  ) : (
+                    <h3 className="text-xl font-semibold text-[var(--link-color)]">
+                      {role}
+                    </h3>
                   )}
                   <div className="flex items-center gap-2">
-                    <EditableText
-                      path={`experience.${index}.company`}
-                      value={exp.company}
-                      as="span"
-                      className="text-[var(--link-color)] font-medium"
-                    />
-                    {exp.workType && (
+                    {!isEditMode && company && (
+                      <span className="text-[var(--link-color)] font-medium">{company}</span>
+                    )}
+                    {post.workTime && (
                       <>
-                        <span className="text-[var(--text-muted)]">&bull;</span>
-                        <EditableText
-                          path={`experience.${index}.workType`}
-                          value={exp.workType}
-                          as="span"
-                          className="text-[var(--text-muted)] text-sm"
-                        />
+                        {!isEditMode && company && (
+                          <span className="text-[var(--text-muted)]">&bull;</span>
+                        )}
+                        {isEditMode ? (
+                          <EditableText
+                            path={`posts.${originalIndex}.workTime`}
+                            value={post.workTime}
+                            as="span"
+                            className="text-[var(--text-muted)] text-sm"
+                          />
+                        ) : (
+                          <span className="text-[var(--text-muted)] text-sm">{post.workTime}</span>
+                        )}
                       </>
                     )}
                   </div>
                 </div>
-                <EditableText
-                  path={`experience.${index}.period`}
-                  value={exp.period}
-                  as="span"
-                  className="text-[var(--text-muted)] text-sm mt-2 md:mt-0 whitespace-nowrap"
-                />
+                <span className="text-[var(--text-muted)] text-sm mt-2 md:mt-0 whitespace-nowrap">
+                  {displayDate}
+                </span>
               </div>
 
-              <EditableMarkdown
-                path={`experience.${index}.description`}
-                value={exp.description}
-                className="text-[var(--foreground)] mb-4"
-              />
+              {isEditMode ? (
+                <EditableMarkdown
+                  path={`posts.${originalIndex}.description`}
+                  value={description}
+                  className="text-[var(--foreground)] mb-4"
+                />
+              ) : (
+                <p className="text-[var(--foreground)] mb-4">{description}</p>
+              )}
 
-              <EditableList
-                path={`experience.${index}.technologies`}
-                items={exp.technologies}
-                className="mt-4"
-                itemClassName="bg-[var(--tag-bg)] text-[var(--tag-fg)] border border-[var(--tag-border)] px-3 py-1 rounded-full text-sm"
-              />
+              {technologies.length > 0 && (
+                isEditMode ? (
+                  <EditableList
+                    path={`posts.${originalIndex}.tags`}
+                    items={technologies}
+                    className="mt-4"
+                    itemClassName="bg-[var(--tag-bg)] text-[var(--tag-fg)] border border-[var(--tag-border)] px-3 py-1 rounded-full text-sm"
+                  />
+                ) : (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {technologies.map((tag) => (
+                      <span
+                        key={tag}
+                        className="bg-[var(--tag-bg)] text-[var(--tag-fg)] border border-[var(--tag-border)] px-3 py-1 rounded-full text-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )
+              )}
             </>
           );
 
           if (isClickable) {
             return (
               <Link
-                key={exp.id}
-                href={`/post/${postSlug}`}
+                key={post.id || post.slug}
+                href={`/post/${post.slug}`}
                 className="relative block rounded-xl p-6 card-clickable"
               >
                 {cardContent}
@@ -143,7 +188,7 @@ export function Experience() {
 
           return (
             <div
-              key={exp.id}
+              key={post.id || post.slug}
               className="relative block rounded-xl p-6 card-surface"
             >
               {cardContent}

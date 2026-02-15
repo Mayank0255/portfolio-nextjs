@@ -1,5 +1,31 @@
 import React from "react";
 
+/** Map post categories to a timeline type for icon/color display. */
+export function categoryToType(categories: string[]): string {
+  for (const cat of categories) {
+    const lower = cat.toLowerCase();
+    if (lower.includes("work") || lower.includes("experience") || lower.includes("volunteering"))
+      return "work";
+    if (lower.includes("education")) return "education";
+    if (
+      lower.includes("certification") ||
+      lower.includes("license") ||
+      lower.includes("course")
+    )
+      return "certification";
+    if (lower.includes("publication") || lower.includes("article")) return "publication";
+    if (lower.includes("project")) return "achievement";
+  }
+  return "work";
+}
+
+/** Format an ISO date string (e.g. "2026-01-01") to "January 2026". */
+export function formatTimelineDate(isoDate: string): string {
+  const date = new Date(isoDate + "T00:00:00");
+  if (isNaN(date.getTime())) return isoDate;
+  return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+}
+
 export const typeColors: Record<string, string> = {
   work: "bg-blue-500",
   education: "bg-green-500",
