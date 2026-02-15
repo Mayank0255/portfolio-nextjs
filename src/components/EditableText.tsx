@@ -270,13 +270,17 @@ export function EditableList({
 
   const handleAdd = (value?: string) => {
     const v = (value || newItem).trim();
-    if (v) {
+    if (v && !items.some((item) => item.toLowerCase() === v.toLowerCase())) {
       updateField(path, [...items, v]);
       setNewItem("");
     }
   };
 
   const handleUpdate = (index: number, value: string) => {
+    const v = value.trim();
+    if (v && items.some((item, i) => i !== index && item.toLowerCase() === v.toLowerCase())) {
+      return; // prevent duplicate
+    }
     const newItems = [...items];
     newItems[index] = value;
     updateField(path, newItems);
