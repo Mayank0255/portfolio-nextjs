@@ -31,8 +31,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       url: postUrl,
       publishedTime: post.date,
+      modifiedTime: post.date,
       authors: ["Mayank Aggarwal"],
       tags: post.tags,
+      section: post.categories?.[0],
       ...(post.image?.src && {
         images: [{ url: post.image.src, alt: post.image.alt || post.title }],
       }),
@@ -46,7 +48,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// JSON-LD for BlogPosting
+// Strip markdown to plain text for articleBody
+function stripMarkdown(md: string): string {
+  return md
+    .replace(/#{1,6}\s/g, "")
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .replace(/\*(.*?)\*/g, "$1")
+    .replace(/!\[.*?\]\(.*?\)/g, "")
+    .replace(/\[(.*?)\]\(.*?\)/g, "$1")
+    .replace(/`{1,3}[^`]*`{1,3}/g, "")
+    .replace(/\n{2,}/g, "\n")
+    .trim();
+}
+
+// JSON-LD: BlogPosting + BreadcrumbList
 async function PostJsonLd({ slug }: { slug: string }) {
   const decodedSlug = decodeURIComponent(slug);
   const data = await getPortfolioData();
@@ -54,29 +69,68 @@ async function PostJsonLd({ slug }: { slug: string }) {
 
   if (!post) return null;
 
+  const postUrl = `${SITE_URL}/post/${encodeURIComponent(post.slug)}`;
+  const plainContent = stripMarkdown(post.content);
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.description || post.content.slice(0, 160).replace(/[#*_\n]/g, "").trim(),
-    datePublished: post.date,
-    url: `${SITE_URL}/post/${encodeURIComponent(post.slug)}`,
-    author: {
-      "@type": "Person",
-      name: "Mayank Aggarwal",
-      url: SITE_URL,
-    },
-    publisher: {
-      "@type": "Person",
-      name: "Mayank Aggarwal",
-      url: SITE_URL,
-    },
-    keywords: post.tags?.join(", "),
-    ...(post.image?.src && { image: post.image.src }),
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `${SITE_URL}/post/${encodeURIComponent(post.slug)}`,
-    },
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": postUrl,
+        headline: post.title,
+        description:
+          post.description || post.content.slice(0, 160).replace(/[#*_\n]/g, "").trim(),
+        articleBody: plainContent.slice(0, 5000),
+        datePublished: post.date,
+        dateModified: post.date,
+        url: postUrl,
+        author: {
+          "@type": "Person",
+          "@id": `${SITE_URL}/#person`,
+          name: "Mayank Aggarwal",
+          url: SITE_URL,
+        },
+        publisher: {
+          "@type": "Person",
+          "@id": `${SITE_URL}/#person`,
+          name: "Mayank Aggarwal",
+          url: SITE_URL,
+        },
+        keywords: post.tags?.join(", "),
+        articleSection: post.categories?.join(", "),
+        inLanguage: "en-US",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        ...(post.image?.src && {
+          image: {
+            "@type": "ImageObject",
+            url: post.image.src,
+            caption: post.image.alt || post.title,
+          },
+        }),
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": postUrl,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: post.title,
+            item: postUrl,
+          },
+        ],
+      },
+    ],
   };
 
   return (
