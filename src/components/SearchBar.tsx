@@ -3,6 +3,7 @@
 import { usePortfolio } from "@/context/PortfolioContext";
 import { useRouter } from "next/navigation";
 import { useCallback, useState, useRef, useEffect } from "react";
+import { formatTimelineDate } from "@/components/sections/timelineStyles";
 
 export function SearchBar() {
   const { data } = usePortfolio();
@@ -144,7 +145,7 @@ export function SearchBar() {
                     <span className={`font-medium block ${index === selectedIndex ? "text-[var(--link-color)]" : "text-[var(--foreground)]"}`}>
                       {p.title}
                     </span>
-                    <span className="text-xs text-[var(--text-muted)]">{p.date}</span>
+                    <span className="text-xs text-[var(--text-muted)]">{formatTimelineDate(p.date)}</span>
                   </button>
                 </li>
               ))}

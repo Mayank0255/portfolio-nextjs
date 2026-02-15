@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { markdownToHtml, markdownProseClass } from "@/lib/markdown";
 import { PageSkeleton } from "@/components/SkeletonLoading";
+import { formatTimelineDate } from "@/components/sections/timelineStyles";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -198,7 +199,7 @@ export default function Home() {
                     />
                   )}
                   <div className="flex flex-wrap gap-3 text-xs font-medium text-[var(--text-muted)]">
-                    <span>{post.date}</span>
+                    <span>{formatTimelineDate(post.date)}</span>
                     {post.categories?.length > 0 && (
                       <>
                         <span className="opacity-60">·</span>

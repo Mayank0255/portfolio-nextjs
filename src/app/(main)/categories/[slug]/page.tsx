@@ -7,6 +7,7 @@ import { useState } from "react";
 import { slugify } from "@/utils/postMatch";
 import { markdownToHtml, markdownProseClass } from "@/lib/markdown";
 import type { Post } from "@/data/portfolio";
+import { formatTimelineDate } from "@/components/sections/timelineStyles";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -24,7 +25,7 @@ function PostCardExperience({ post }: { post: Post }) {
           </h3>
         </div>
         <span className="text-[var(--text-muted)] text-sm mt-2 md:mt-0 whitespace-nowrap">
-          {post.date}
+          {formatTimelineDate(post.date)}
         </span>
       </div>
       {post.description && (

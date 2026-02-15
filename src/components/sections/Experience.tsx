@@ -14,11 +14,11 @@ function parseTitle(title: string): { role: string; company: string } {
   return { role: title, company: "" };
 }
 
-/** Check if a post belongs to work/experience categories. */
-function isWorkPost(categories: string[]): boolean {
+/** Check if a post belongs to experience/volunteering categories (not projects). */
+function isExperiencePost(categories: string[]): boolean {
   return categories.some((c) => {
     const lower = c.toLowerCase();
-    return lower.includes("work") || lower.includes("experience") || lower.includes("volunteering");
+    return lower.includes("experience") || lower.includes("volunteering");
   });
 }
 
@@ -30,7 +30,7 @@ export function Experience() {
   // Filter to work/experience posts, sort by date descending, track original index
   const workEntries = posts
     .map((post, originalIndex) => ({ post, originalIndex }))
-    .filter(({ post }) => isWorkPost(post.categories || []))
+    .filter(({ post }) => isExperiencePost(post.categories || []))
     .sort((a, b) => b.post.date.localeCompare(a.post.date));
 
   const handleAddExperience = () => {

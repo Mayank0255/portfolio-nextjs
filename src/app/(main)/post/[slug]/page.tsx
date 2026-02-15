@@ -8,6 +8,7 @@ import { markdownToHtml, markdownProseClass } from "@/lib/markdown";
 import { EditableText, EditableList } from "@/components/EditableText";
 import { EditableMarkdown } from "@/components/EditableMarkdown";
 import { PostDetailSkeleton } from "@/components/SkeletonLoading";
+import { formatTimelineDate } from "@/components/sections/timelineStyles";
 
 function slugify(s: string) {
   return s.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]/g, "");
@@ -149,7 +150,7 @@ export default function PostPage() {
               className="text-sm text-[var(--text-muted)]"
             />
           ) : (
-            <span>{post.date}</span>
+            <span>{formatTimelineDate(post.date)}</span>
           )}
           {(post.workTime || isEditMode) && (
             <>
@@ -242,7 +243,7 @@ export default function PostPage() {
                 className="block p-4 card-clickable rounded-lg"
               >
                 <h3 className="font-semibold text-[var(--link-color)]">{p.title}</h3>
-                <span className="text-sm text-[var(--text-muted)]">{p.date}</span>
+                <span className="text-sm text-[var(--text-muted)]">{formatTimelineDate(p.date)}</span>
               </Link>
             ))}
           </div>
