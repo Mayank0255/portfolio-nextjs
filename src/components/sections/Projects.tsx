@@ -1,16 +1,38 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePortfolio } from "@/context/PortfolioContext";
 import { EditableText, EditableList, useAllSuggestions } from "../EditableText";
 import { EditableMarkdown } from "../EditableMarkdown";
 import { findPostSlugByProject } from "@/utils/postMatch";
 
+/** Parse GitHub URL to "owner/repo" key */
+function ghKey(url: string): string | null {
+  const m = url.match(/github\.com\/([^/]+)\/([^/]+)/);
+  return m ? `${m[1]}/${m[2].replace(/\.git$/, "")}` : null;
+}
+
 export function Projects() {
   const { data, isEditMode, updateField } = usePortfolio();
   const { allTags } = useAllSuggestions();
   const [showAddForm, setShowAddForm] = useState(false);
+  const [ghStats, setGhStats] = useState<Record<string, { stars: number; forks: number }>>({});
+
+  // Fetch live GitHub stats for all project links
+  useEffect(() => {
+    const urls = data.projects
+      .map((p) => p.link)
+      .filter((l) => l.includes("github.com"));
+    if (urls.length === 0) return;
+
+    fetch(`/api/github?urls=${encodeURIComponent(urls.join(","))}`)
+      .then((r) => r.json())
+      .then((stats) => {
+        if (stats && !stats.error) setGhStats(stats);
+      })
+      .catch(() => {});
+  }, [data.projects]);
 
   const handleAddProject = () => {
     const newProject = {
@@ -53,6 +75,10 @@ export function Projects() {
         {data.projects.map((project, index) => {
           const postSlug = findPostSlugByProject(data.posts || [], project);
           const isClickable = !isEditMode && postSlug;
+          const key = ghKey(project.link);
+          const live = key ? ghStats[key] : null;
+          const stars = live?.stars ?? project.stars ?? 0;
+          const forks = live?.forks ?? 0;
 
           const cardContent = (
             <>
@@ -85,14 +111,24 @@ export function Projects() {
                     className="text-xl font-semibold text-[var(--foreground)]"
                   />
                 )}
-                {project.stars !== undefined && project.stars > 0 && (
-                  <div className="flex items-center gap-1 text-yellow-500">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                    </svg>
-                    <span className="text-sm font-medium">{project.stars}</span>
-                  </div>
-                )}
+                <div className="flex items-center gap-3 shrink-0">
+                  {stars > 0 && (
+                    <div className="flex items-center gap-1 text-yellow-500" title="Stars">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z" />
+                      </svg>
+                      <span className="text-sm font-medium">{stars.toLocaleString()}</span>
+                    </div>
+                  )}
+                  {forks > 0 && (
+                    <div className="flex items-center gap-1 text-[var(--text-muted)]" title="Forks">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-.878a2.25 2.25 0 111.5 0v.878a2.25 2.25 0 01-2.25 2.25h-1.5v2.128a2.251 2.251 0 11-1.5 0V8.5h-1.5A2.25 2.25 0 013.5 6.25v-.878a2.25 2.25 0 111.5 0zM5 3.25a.75.75 0 10-1.5 0 .75.75 0 001.5 0zm6.75.75a.75.75 0 10 0-1.5.75.75 0 000 1.5zM8 12.75a.75.75 0 10-1.5 0 .75.75 0 001.5 0z" />
+                      </svg>
+                      <span className="text-sm font-medium">{forks.toLocaleString()}</span>
+                    </div>
+                  )}
+                </div>
               </div>
 
               <EditableMarkdown
