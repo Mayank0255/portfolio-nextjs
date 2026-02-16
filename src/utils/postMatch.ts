@@ -46,6 +46,22 @@ export function findPostSlugByProject(
   return null;
 }
 
+/** Find a project entry matching a post (reverse of findPostSlugByProject). */
+export function findProjectByPost(
+  projects: { name: string; link: string; stars?: number }[],
+  post: Post
+): { name: string; link: string; stars?: number } | null {
+  const postTitle = normalizeForMatch(post.title);
+  const postSlug = slugify(post.title);
+  for (const proj of projects) {
+    const projName = normalizeForMatch(proj.name);
+    const projSlug = slugify(proj.name);
+    if (projSlug === postSlug || projName === postTitle) return proj;
+    if (postTitle.includes(projName) || projName.includes(postTitle)) return proj;
+  }
+  return null;
+}
+
 /** Find a post slug for a timeline event (by title, optionally date). */
 export function findPostSlugByTimelineEvent(
   posts: Post[],

@@ -3,8 +3,8 @@
 import { usePortfolio } from "@/context/PortfolioContext";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useState } from "react";
-import { slugify } from "@/utils/postMatch";
+import { useState, useEffect } from "react";
+import { slugify, findProjectByPost } from "@/utils/postMatch";
 import { markdownToHtml, markdownProseClass } from "@/lib/markdown";
 import type { Post } from "@/data/portfolio";
 import { formatTimelineDate } from "@/components/sections/timelineStyles";
@@ -13,6 +13,12 @@ const ITEMS_PER_PAGE = 10;
 
 function slugifyCat(s: string) {
   return s.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]/g, "");
+}
+
+/** Parse GitHub URL to "owner/repo" key */
+function ghKey(url: string): string | null {
+  const m = url.match(/github\.com\/([^/]+)\/([^/]+)/);
+  return m ? `${m[1]}/${m[2].replace(/\.git$/, "")}` : null;
 }
 
 function PostCardExperience({ post }: { post: Post }) {
@@ -55,13 +61,41 @@ function PostCardExperience({ post }: { post: Post }) {
   );
 }
 
-function PostCardProject({ post }: { post: Post }) {
+function PostCardProject({
+  post,
+  githubLink,
+  stars,
+  forks,
+}: {
+  post: Post;
+  githubLink?: string;
+  stars: number;
+  forks: number;
+}) {
   return (
     <Link href={`/post/${post.slug}`} className="block card-clickable rounded-xl p-6">
       <div className="flex items-start justify-between mb-3">
         <h3 className="text-xl font-semibold text-[var(--link-color)]">
           {post.title}
         </h3>
+        <div className="flex items-center gap-3 shrink-0">
+          {stars > 0 && (
+            <div className="flex items-center gap-1 text-yellow-500" title="Stars">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z" />
+              </svg>
+              <span className="text-sm font-medium">{stars.toLocaleString()}</span>
+            </div>
+          )}
+          {forks > 0 && (
+            <div className="flex items-center gap-1 text-[var(--text-muted)]" title="Forks">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75v-.878a2.25 2.25 0 111.5 0v.878a2.25 2.25 0 01-2.25 2.25h-1.5v2.128a2.251 2.251 0 11-1.5 0V8.5h-1.5A2.25 2.25 0 013.5 6.25v-.878a2.25 2.25 0 111.5 0zM5 3.25a.75.75 0 10-1.5 0 .75.75 0 001.5 0zm6.75.75a.75.75 0 10 0-1.5.75.75 0 000 1.5zM8 12.75a.75.75 0 10-1.5 0 .75.75 0 001.5 0z" />
+              </svg>
+              <span className="text-sm font-medium">{forks.toLocaleString()}</span>
+            </div>
+          )}
+        </div>
       </div>
       {post.description && (
         <div
@@ -86,12 +120,29 @@ function PostCardProject({ post }: { post: Post }) {
           ))}
         </div>
       )}
-      <span className="inline-flex items-center gap-2 text-[var(--link-color)]">
-        Read more
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </span>
+      <div className="flex items-center gap-4">
+        {githubLink && (
+          <span
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.open(githubLink, "_blank");
+            }}
+            className="inline-flex items-center gap-2 text-[var(--link-color)] hover:underline cursor-pointer"
+          >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+            </svg>
+            GitHub
+          </span>
+        )}
+        <span className="inline-flex items-center gap-2 text-[var(--link-color)]">
+          Read more
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </span>
+      </div>
     </Link>
   );
 }
@@ -101,7 +152,9 @@ export default function CategoryPage() {
   const slug = decodeURIComponent((params.slug as string) || "");
   const { data } = usePortfolio();
   const posts = data.posts || [];
+  const projects = data.projects || [];
   const [page, setPage] = useState(1);
+  const [ghStats, setGhStats] = useState<Record<string, { stars: number; forks: number }>>({});
 
   const filtered = posts.filter(
     (p) => (p.categories || []).some((c) => slugifyCat(c) === slug)
@@ -112,6 +165,29 @@ export default function CategoryPage() {
   const pagePosts = filtered.slice(start, start + ITEMS_PER_PAGE);
   const categoryName = slug.replace(/-/g, " ");
   const useExperienceStyle = slug === "experience" || slug === "volunteering";
+
+  // Build post→project mapping for GitHub links
+  const postProjectMap = new Map<string, { link: string; stars?: number }>();
+  for (const post of filtered) {
+    const proj = findProjectByPost(projects, post);
+    if (proj) postProjectMap.set(post.id, proj);
+  }
+
+  // Fetch live GitHub stats for project posts
+  useEffect(() => {
+    const urls = Array.from(postProjectMap.values())
+      .map((p) => p.link)
+      .filter((l) => l.includes("github.com"));
+    if (urls.length === 0) return;
+
+    const unique = [...new Set(urls)];
+    fetch(`/api/github?urls=${encodeURIComponent(unique.join(","))}`)
+      .then((r) => r.json())
+      .then((stats) => {
+        if (stats && !stats.error) setGhStats(stats);
+      })
+      .catch(() => {});
+  }, [filtered.length, projects.length]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -135,9 +211,22 @@ export default function CategoryPage() {
         </div>
       ) : (
         <div className="grid md:grid-cols-2 gap-6">
-          {pagePosts.map((post) => (
-            <PostCardProject key={post.id} post={post} />
-          ))}
+          {pagePosts.map((post) => {
+            const proj = postProjectMap.get(post.id);
+            const key = proj ? ghKey(proj.link) : null;
+            const live = key ? ghStats[key] : null;
+            const stars = live?.stars ?? proj?.stars ?? 0;
+            const forks = live?.forks ?? 0;
+            return (
+              <PostCardProject
+                key={post.id}
+                post={post}
+                githubLink={proj?.link}
+                stars={stars}
+                forks={forks}
+              />
+            );
+          })}
         </div>
       )}
 
